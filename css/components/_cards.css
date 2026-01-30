@@ -1,0 +1,340 @@
+/* --- General Section Styles --- */
+.section {
+    padding: 100px 10%;
+}
+
+#skills {
+    padding-top: 20px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.section-title span {
+    color: var(--primary);
+}
+
+/* --- Card Base --- */
+.card {
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(37, 99, 235, 0.3);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.card h3 {
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--primary);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* --- Skill Lists --- */
+.skill-list,
+.goals-list {
+    list-style: none;
+}
+
+.skill-list li,
+.goals-list li {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start;
+    color: var(--text-muted);
+}
+
+.skill-list li i,
+.goals-list li i {
+    color: var(--primary);
+    margin-right: 15px;
+    font-size: 1.2rem;
+    margin-top: 4px;
+}
+
+/* --- Project Cards --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: var(--glass);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(0, 255, 249, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.project-card:hover::before {
+    transform: translateX(100%);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(0, 255, 249, 0.3);
+    border-color: var(--primary);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.project-title {
+    font-size: 1.5rem;
+    font-family: var(--font-en);
+    margin-bottom: 15px;
+    color: white;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.folder-icon {
+    font-size: 2.5rem;
+    color: var(--primary);
+    text-shadow: 0 0 10px var(--primary);
+}
+
+.project-links a {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    margin-left: 15px;
+    transition: 0.3s;
+}
+
+.project-links a:hover {
+    color: var(--primary);
+    text-shadow: 0 0 10px var(--primary);
+}
+
+.project-description {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.tag {
+    background: rgba(0, 255, 249, 0.1);
+    color: var(--primary);
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid rgba(0, 255, 249, 0.2);
+    transition: 0.3s;
+}
+
+.project-card:hover .tag {
+    border-color: var(--primary);
+    box-shadow: 0 0 5px rgba(0, 255, 249, 0.2);
+}
+
+/* --- Farida Special Card Styling --- */
+.farida-card {
+    background: #050505;
+    border: 1px solid rgba(214, 0, 28, 0.3);
+}
+
+.farida-card::before {
+    background: linear-gradient(45deg, transparent, rgba(214, 0, 28, 0.2), transparent);
+}
+
+.farida-card:hover {
+    border-color: #D6001C;
+    box-shadow: 0 0 25px rgba(214, 0, 28, 0.4);
+}
+
+.farida-logo {
+    z-index: 1;
+    filter: drop-shadow(0 0 5px rgba(214, 0, 28, 0.5));
+}
+
+.farida-card .project-title {
+    color: #ffffff;
+    font-size: 1.35rem;
+    z-index: 1;
+    margin-top: 10px;
+    letter-spacing: 0.5px;
+}
+
+.farida-card .project-description {
+    color: #e2e8f0;
+    z-index: 1;
+    line-height: 1.7;
+}
+
+.btn-farida {
+    background: #D6001C;
+    box-shadow: 0 4px 15px rgba(214, 0, 28, 0.3);
+    border: none;
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.btn-farida:hover {
+    background: #b50018;
+    box-shadow: 0 6px 25px rgba(214, 0, 28, 0.5);
+}
+
+.farida-card .tag {
+    background: rgba(214, 0, 28, 0.1);
+    color: #ff8090;
+    border: 1px solid rgba(214, 0, 28, 0.3);
+    z-index: 1;
+}
+
+/* --- Detailed Skills Section (Tabs) --- */
+.tabs-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.tabs-controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.tab-btn {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--text-color);
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.tab-btn.active,
+.tab-btn:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.skills-grid-detailed {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.skill-category-card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.skill-category-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.skill-category-card h4 {
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.detailed-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.detailed-list li {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    position: relative;
+    padding-left: 20px;
+}
+
+.detailed-list li::before {
+    content: '▹';
+    color: var(--primary);
+    position: absolute;
+    left: 0;
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 60px 5%;
+    }
+}

@@ -1,0 +1,46 @@
+:root {
+    --primary: #00f3ff;
+    /* Electric Cyan */
+    --secondary: #bc13fe;
+    /* Neon Purple */
+    --bg-color: #0f172a;
+    /* Deep Void */
+    --card-bg: rgba(255, 255, 255, 0.05);
+    /* Glassmorphism */
+    --text-color: #e2e8f0;
+    /* Off-white */
+    --text-muted: #94a3b8;
+    --nav-bg: rgba(15, 23, 42, 0.8);
+    --nav-border: rgba(0, 243, 255, 0.2);
+    /* Cyan border */
+    --font-en: 'Orbitron', sans-serif;
+    --font-ar: 'Cairo', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+body.light-mode {
+    --bg-color: #f8fafc;
+    --text-color: #1e293b;
+    --secondary: #e2e8f0;
+    --text-muted: #475569;
+    --card-bg: #ffffff;
+    --nav-bg: rgba(255, 255, 255, 0.95);
+    --nav-border: rgba(0, 0, 0, 0.1);
+}
+
+/* Fix for card borders in light mode */
+body.light-mode .card,
+body.light-mode .project-card,
+body.light-mode .skill-category-card {
+    border-color: #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .logo span {
+    color: var(--primary);
+}
+
+body.light-mode .particle {
+    background: var(--primary);
+    /* Make dots visible in light mode */
+}

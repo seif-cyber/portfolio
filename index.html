@@ -5,63 +5,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Portfolio of Seif Hossam, a Computer Science Student and Full-Stack Developer specializing in React, Java, and C++. Building scalable modern web applications.">
+        content="Official portfolio of Seif Hossam. A Full-Stack Developer specializing in React, Java, and C++. Explore scalable applications, technical skills, and software engineering projects.">
     <meta name="keywords"
         content="Seif Hossam, Full-Stack Developer, React Developer, Java Developer, Software Engineer Portfolio, Web Development">
-    <meta property="og:title" content="Seif Hossam | Full-Stack Developer">
-    <meta property="og:description" content="Building scalable modern web applications with React, Java, and C++.">
-    <meta property="og:image" content="profile.jpg">
-    <meta property="og:type" content="website">
 
-    <title>Seif Hossam | Full-Stack Developer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Google Verification -->
+    <meta name="google-site-verification" content="4gFrhPNAGSiaZAoGVPYX1cQ-fY3A2iVSO8Tg-_n9QdQ" />
+
+    <title>SEIF HOSSAM | Full-Stack Developer & Cybernetic Architect</title>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon_io/site.webmanifest">
+    <link rel="shortcut icon" href="assets/favicon_io/favicon.ico">
+
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Person",
+      "name": "Seif Hossam",
+      "url": "https://seif-hossam.vercel.app/",
+      "image": "assets/images/profile.jpg",
+      "sameAs": [
+        "https://github.com/seif-hossam",
+        "https://www.linkedin.com/in/seif-hossam-3a2bb724b",
+        "https://www.facebook.com/sif.hosam.7"
+      ],
+      "jobTitle": "Full-Stack Developer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Freelance"
+      },  
+      "knowsAbout": ["React.js", "Java", "C++", "Full-Stack Development", "System Analysis"]
+    }
+    </script>
+
+    <!-- Social Media Meta Tags (Open Graph / Twitter) -->
+    <meta property="og:title" content="Seif Hossam | Full-Stack Developer Portfolio">
+    <meta property="og:description"
+        content="Discover modern web applications and technical expertise in React and Java.">
+    <meta property="og:image" content="assets/images/profile.jpg">
+    <meta property="og:url" content="https://seif-hossam.vercel.app/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/main.css">
+
 </head>
 
 <body>
-    <div id="particles-container"></div>
+    <div id="particles-js"></div>
+    <div id="cursor"></div>
+    <div id="cursor-blur"></div>
 
+    <!-- Navigation -->
     <nav>
-        <div class="logo">Seif<span>Hossam</span></div>
-        <div class="hamburger" onclick="toggleMenu()">
-            <i class="fa-solid fa-bars"></i>
-        </div>
-        <div class="nav-links">
-            <a href="#soft-skills" onclick="toggleMenu()">About</a>
-            <a href="#skills" onclick="toggleMenu()">Skills</a>
-            <a href="#projects" onclick="toggleMenu()">Projects</a>
-            <a href="#contact" onclick="toggleMenu()">Contact</a>
-            <button id="theme-toggle" aria-label="Toggle Dark Mode">
-                <i class="fa-solid fa-moon"></i>
-            </button>
+        <div class="logo">SEIF <span style="color: var(--primary);">HOSSAM</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#soft-skills">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-extra">
+            <button id="lang-toggle" class="lang-btn">AR</button>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
     </nav>
 
-    <section class="hero">
-        <div class="hero-text">
-            <h3 class="fade-up">Full-Stack Developer</h3>
-            <h1 class="fade-up delay-100">Hi, I'm Seif Hossam</h1>
-            <p class="fade-up delay-200">
-                A driven Computer Science Student and Junior Developer skilled in React, Java, C++, and Object-Oriented
-                Programming.
-                I specialize in building scalable, production-ready applications with clean code and modern
-                architecture.
-            </p>
-            <div class="cta-buttons fade-up delay-300">
-                <a href="#projects" class="btn">
-                    View My Work
-                </a>
-                <a href="#soft-skills" class="btn btn-outline">More About Me</a>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h3 class="slide-in-left">Full-Stack Developer</h3>
+                <h1 class="slide-in-left delay-100">Hi, I'm Seif Hossam</h1>
+                <p class="fade-up delay-200">
+                    A driven Computer Science Student and Junior Developer skilled in React, Java, and C++.
+                    I specialize in building scalable, production-ready applications with clean code and modern
+                    architecture.
+                </p>
+                <div class="cta-buttons fade-up delay-300">
+                    <a href="assets/Profile.pdf" class="btn" download>Download CV</a>
+                    <a href="#projects" class="btn btn-outline">See My Work</a>
+                </div>
             </div>
-
-
         </div>
 
         <div class="hero-img">
-            <img src="profile.jpg" alt="Seif Hossam - Full Stack Developer">
+            <img src="assets/images/profile.jpg" alt="Seif Hossam - Full Stack Developer">
         </div>
     </section>
+
+
 
     <section class="section" id="skills">
         <h2 class="section-title fade-up">Technical <span>Skills</span></h2>
@@ -76,20 +130,18 @@
             <div class="tab-content active" id="frontend">
                 <div class="skills-grid-detailed">
                     <!-- Basics -->
-                    <div class="skill-category-card">
-                        <h4><i class="fa-brands fa-html5"></i> Web Basics</h4>
+                    <div class="skill-category-card zoom-in delay-100">
+                        <h4><i class="fa-brands fa-html5"></i> HTML5 & CSS3</h4>
                         <ul class="detailed-list">
-                            <li>HTML5 / CSS3</li>
-                            <li>JavaScript (ES6+)</li>
-                            <li>DOM & BOM Manipulation</li>
-                            <li>Bootstrap / Templates</li>
-                            <li>jQuery & Plugins</li>
+                            <li>Semantic HTML5 & Accessibility</li>
+                            <li>Flexbox & Grid Layouts</li>
                             <li>Responsive Design</li>
+                            <li>SCSS / SASS Preprocessing</li>
                         </ul>
                     </div>
 
                     <!-- Angular -->
-                    <div class="skill-category-card">
+                    <div class="skill-category-card zoom-in delay-200">
                         <h4><i class="fa-brands fa-angular"></i> Angular</h4>
                         <ul class="detailed-list">
                             <li>TypeScript & OOP Principles</li>
@@ -102,7 +154,7 @@
                     </div>
 
                     <!-- React -->
-                    <div class="skill-category-card">
+                    <div class="skill-category-card zoom-in delay-300">
                         <h4><i class="fa-brands fa-react"></i> React.js</h4>
                         <ul class="detailed-list">
                             <li>JSX & Components</li>
@@ -120,7 +172,7 @@
             <div class="tab-content" id="backend">
                 <div class="skills-grid-detailed">
                     <!-- MySQL -->
-                    <div class="skill-category-card">
+                    <div class="skill-category-card zoom-in delay-100">
                         <h4><i class="fa-solid fa-database"></i> MySQL</h4>
                         <ul class="detailed-list">
                             <li>SQL Types & Constraints</li>
@@ -133,7 +185,7 @@
                     </div>
 
                     <!-- PHP / Laravel -->
-                    <div class="skill-category-card">
+                    <div class="skill-category-card zoom-in delay-200">
                         <h4><i class="fa-brands fa-laravel"></i> PHP & Laravel</h4>
                         <ul class="detailed-list">
                             <li>PHP OOP & MVC Pattern</li>
@@ -146,7 +198,7 @@
                     </div>
 
                     <!-- Systems -->
-                    <div class="skill-category-card">
+                    <div class="skill-category-card zoom-in delay-300">
                         <h4><i class="fa-solid fa-server"></i> System Analysis</h4>
                         <ul class="detailed-list">
                             <li>Database Schema & ERD</li>
@@ -166,7 +218,7 @@
         <h2 class="section-title fade-up">Featured <span>Projects</span></h2>
         <div class="projects-grid">
             <!-- Project 1 -->
-            <div class="project-card fade-up delay-200">
+            <div class="project-card slide-in-left delay-100">
                 <div class="project-header">
                     <i class="fa-regular fa-folder folder-icon"></i>
                     <div class="project-links">
@@ -189,28 +241,31 @@
             </div>
 
             <!-- Project 2 -->
-            <div class="project-card fade-up delay-400">
+            <div class="project-card zoom-in delay-300">
                 <div class="project-header">
-                    <i class="fa-regular fa-folder folder-icon"></i>
+                    <img src="https://farida-eg.com/pics/logo.png" alt="Farida Logo" class="farida-logo"
+                        style="width: 45px; height: auto;">
                     <div class="project-links">
-                        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository"><i
-                                class="fa-brands fa-github"></i></a>
+                        <a href="https://farida-eg.com/" target="_blank" rel="noopener noreferrer"
+                            aria-label="Live Site"><i class="fa-solid fa-external-link-alt"></i></a>
                     </div>
                 </div>
-                <div class="project-title">Inventory Management System</div>
+                <div class="project-title">Farida Marketing Agency</div>
                 <p class="project-description">
-                    A robust desktop application developed in Java. Utilizes OOP principles to handle stock tracking,
-                    order processing, and supplier database integration with a Swing GUI.
+                    A premium, full-service advertising and marketing platform. Features a high-impact, dark-themed
+                    cinematic design showcasing strategic branding and digital marketing services.
                 </p>
+                <a href="https://farida-eg.com/" target="_blank" rel="noopener noreferrer" class="btn btn-sm"
+                    style="margin-bottom: 20px;">Open Project</a>
                 <div class="tech-tags">
-                    <span class="tag">Java</span>
-                    <span class="tag">JavaFX</span>
-                    <span class="tag">MySQL</span>
+                    <span class="tag">HTML5/CSS3</span>
+                    <span class="tag">Responsive Design</span>
+                    <span class="tag">Animations</span>
                 </div>
             </div>
 
             <!-- Project 3 -->
-            <div class="project-card fade-up delay-200">
+            <div class="project-card slide-in-right delay-200">
                 <div class="project-header">
                     <i class="fa-regular fa-folder folder-icon"></i>
                     <div class="project-links">
@@ -236,15 +291,13 @@
         </div>
     </section>
 
-    </section>
-
     <!-- --- Soft Skills Section --- -->
     <section class="section" id="soft-skills">
         <h2 class="section-title fade-up">Soft <span>Skills</span></h2>
 
         <div class="skills-grid-detailed">
             <!-- Problem Solving -->
-            <div class="skill-category-card fade-up delay-100">
+            <div class="skill-category-card zoom-in delay-100">
                 <h4><i class="fa-solid fa-puzzle-piece"></i> Problem Solving</h4>
                 <ul class="detailed-list">
                     <li>Ability to debug code and find effective solutions</li>
@@ -253,7 +306,7 @@
             </div>
 
             <!-- Analytical Thinking -->
-            <div class="skill-category-card fade-up delay-200">
+            <div class="skill-category-card zoom-in delay-200">
                 <h4><i class="fa-solid fa-brain"></i> Analytical Thinking</h4>
                 <ul class="detailed-list">
                     <li>Understanding and analyzing system requirements</li>
@@ -262,7 +315,7 @@
             </div>
 
             <!-- Time Management -->
-            <div class="skill-category-card fade-up delay-300">
+            <div class="skill-category-card zoom-in delay-300">
                 <h4><i class="fa-solid fa-clock"></i> Time Management</h4>
                 <ul class="detailed-list">
                     <li>Managing multiple Front-End and Back-End tasks</li>
@@ -271,7 +324,7 @@
             </div>
 
             <!-- Attention to Detail -->
-            <div class="skill-category-card fade-up delay-100">
+            <div class="skill-category-card zoom-in delay-100">
                 <h4><i class="fa-solid fa-magnifying-glass"></i> Attention to Detail</h4>
                 <ul class="detailed-list">
                     <li>Writing clean, maintainable code</li>
@@ -281,7 +334,7 @@
             </div>
 
             <!-- Adaptability -->
-            <div class="skill-category-card fade-up delay-200">
+            <div class="skill-category-card zoom-in delay-200">
                 <h4><i class="fa-solid fa-bolt"></i> Adaptability</h4>
                 <ul class="detailed-list">
                     <li>Learning multiple technologies (Angular, React, Laravel)</li>
@@ -290,7 +343,7 @@
             </div>
 
             <!-- Communication -->
-            <div class="skill-category-card fade-up delay-300">
+            <div class="skill-category-card zoom-in delay-300">
                 <h4><i class="fa-solid fa-comments"></i> Communication</h4>
                 <ul class="detailed-list">
                     <li>Documenting projects on GitHub clearly</li>
@@ -300,7 +353,7 @@
             </div>
 
             <!-- Teamwork -->
-            <div class="skill-category-card fade-up delay-100">
+            <div class="skill-category-card zoom-in delay-100">
                 <h4><i class="fa-solid fa-users"></i> Teamwork</h4>
                 <ul class="detailed-list">
                     <li>Integrating Front-End and Back-End workflows</li>
@@ -310,7 +363,7 @@
             </div>
 
             <!-- Critical Thinking -->
-            <div class="skill-category-card fade-up delay-200">
+            <div class="skill-category-card zoom-in delay-200">
                 <h4><i class="fa-solid fa-chess"></i> Critical Thinking</h4>
                 <ul class="detailed-list">
                     <li>Making architectural and design decisions</li>
@@ -320,7 +373,7 @@
             </div>
 
             <!-- Creativity -->
-            <div class="skill-category-card fade-up delay-300">
+            <div class="skill-category-card zoom-in delay-300">
                 <h4><i class="fa-solid fa-lightbulb"></i> Creativity</h4>
                 <ul class="detailed-list">
                     <li>Designing modern and user-friendly interfaces</li>
@@ -329,7 +382,7 @@
             </div>
 
             <!-- Professionalism -->
-            <div class="skill-category-card fade-up delay-100">
+            <div class="skill-category-card zoom-in delay-100">
                 <h4><i class="fa-solid fa-user-tie"></i> Professionalism</h4>
                 <ul class="detailed-list">
                     <li>Meeting project deadlines consistently</li>
@@ -339,11 +392,11 @@
         </div>
     </section>
 
-    <footer id="contact" class="fade-up">
+    <footer id="contact" class="fade-in">
         <h2>Get In Touch</h2>
         <p>Currently looking for new opportunities. My inbox is always open.</p>
 
-        <div class="cta-buttons" style="margin-bottom: 30px;">
+        <div class="cta-buttons" style="margin-bottom: 30px; justify-content: center;">
             <a href="mailto:sifhosam67@gmail.com" class="btn">Say Hello</a>
         </div>
 
@@ -363,7 +416,20 @@
         <p style="margin-top: 30px; font-size: 0.8rem; opacity: 0.5;">© 2026 Seif Hossam. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+
+    <!-- Floating Buttons -->
+    <a href="https://wa.me/201090066885" target="_blank" class="float-btn whatsapp-btn" aria-label="WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <button id="scroll-top" class="float-btn scroll-btn" aria-label="Scroll to Top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="js/main.js"></script>
 </body>
 
 </html>
