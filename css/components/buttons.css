@@ -1,0 +1,135 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: var(--font-en);
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: var(--primary);
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+
+.btn:hover::before {
+    width: 100%;
+}
+
+.btn:hover {
+    color: black;
+    box-shadow: 0 0 20px var(--primary);
+    transform: translateY(-3px);
+}
+
+.btn-sm {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    margin-top: 15px;
+    width: fit-content;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-left: 15px;
+    color: white;
+}
+
+.btn-outline:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    box-shadow: 0 0 15px rgba(0, 255, 249, 0.3);
+}
+
+.cta-buttons {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .cta-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .btn,
+    .btn-outline {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+/* Floating Buttons */
+.float-btn {
+    position: fixed;
+    bottom: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    z-index: 1000;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s;
+    border: none;
+    text-decoration: none;
+}
+
+.whatsapp-btn {
+    left: 30px;
+    background: #25d366;
+    border: 1px solid #25d366;
+}
+
+.whatsapp-btn:hover {
+    background: #128c7e;
+    box-shadow: 0 0 20px #25d366;
+    transform: translateY(-5px);
+}
+
+.scroll-btn {
+    left: 30px;
+    bottom: 95px;
+    /* Stacked above WhatsApp (30 + 50 + 15 gap) */
+    background: var(--primary);
+    border: 1px solid var(--primary);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.scroll-btn.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-btn:hover {
+    background: transparent;
+    color: var(--primary);
+    box-shadow: 0 0 20px var(--primary);
+    transform: translateY(-5px);
+}
