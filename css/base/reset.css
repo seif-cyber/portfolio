@@ -23,6 +23,8 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) var(--bg-color);
 }
 
 #cursor {
@@ -50,4 +52,24 @@ body {
     z-index: -1;
     transform: translate(-50%, -50%);
     transition: all 0.1s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 5px;
+    border: 2px solid var(--bg-color);
+    /* Adds a gap around the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
 }
