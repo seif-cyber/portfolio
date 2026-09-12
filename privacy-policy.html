@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <!-- Language Pre-Detection -->
+    <script>
+        (function() {
+            var params = new URLSearchParams(window.location.search);
+            var lang = params.get('lang') || window.location.hash.replace('#', '');
+            if (!lang) {
+                try { lang = localStorage.getItem('portfolio_lang'); } catch (e) {}
+            }
+            if (lang === 'ar') {
+                document.documentElement.lang = 'ar';
+                document.documentElement.dir = 'rtl';
+            } else {
+                document.documentElement.lang = 'en';
+                document.documentElement.dir = 'ltr';
+            }
+        })();
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4P0SPSK3F"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-Z4P0SPSK3F');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Privacy Policy for VOLT FIT mobile application by SEIF HOSSAM. Read how we protect, store, and manage your health, fitness, and personal data.">
+    <meta name="keywords"
+        content="VOLT FIT Privacy Policy, سياسة خصوصية فولت فيت, VOLT FIT App, Seif Hossam, Fitness App Privacy, GDPR, Google Play Data Safety">
+    <meta name="author" content="SEIF HOSSAM">
+    <meta name="robots" content="index, follow">
+
+    <title>VOLT FIT — Privacy Policy | سياسة الخصوصية</title>
+    <link rel="canonical" href="https://seifhossam.com/privacy-policy.html">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon_io/site.webmanifest">
+    <link rel="shortcut icon" href="assets/favicon_io/favicon.ico">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Base & Custom Styles -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/privacy.css">
+</head>
+
+<body class="policy-page">
+    <div id="cursor"></div>
+    <div id="cursor-blur"></div>
+
+    <!-- Top Sticky Header -->
+    <nav class="policy-nav">
+        <a href="index.html" class="brand">SEIF <span>HOSSAM</span></a>
+        <div class="policy-nav-actions">
+            <!-- Language Switcher -->
+            <div class="policy-lang-switch">
+                <button type="button" class="policy-lang-tab active" data-lang="ar">AR | العربية</button>
+                <button type="button" class="policy-lang-tab" data-lang="en">EN | English</button>
+            </div>
+            <a href="index.html#projects" class="policy-back-btn">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span id="back-text">العودة للمشاريع</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="policy-container">
+
+        <!-- Hero Header -->
+        <header class="policy-hero">
+            <div class="policy-app-icon-card">
+                <img src="assets/images/voltfit-icon.png" alt="VOLT FIT App Logo" class="policy-app-icon">
+            </div>
+            <h1 class="policy-title">VOLT FIT</h1>
+            <p class="policy-meta" id="hero-sub">
+                <strong>سياسة الخصوصية وحماية البيانات | Privacy Policy</strong><br>
+                <span>تاريخ السريان: 12 سبتمبر 2026 | Effective Date: September 12, 2026</span><br>
+                <span>المطور المسؤول: سيف الدين حسام (SEIF AL-DEEN HOSSAM)</span>
+            </p>
+            <div class="policy-badges">
+                <span class="policy-badge green"><i class="fa-solid fa-circle-check"></i> GDPR & CCPA Compliant</span>
+                <span class="policy-badge"><i class="fa-brands fa-google-play"></i> Google Play Data Safety</span>
+                <span class="policy-badge purple"><i class="fa-brands fa-apple"></i> App Store Ready</span>
+                <span class="policy-badge"><i class="fa-solid fa-lock"></i> 100% Encrypted & Private</span>
+            </div>
+        </header>
+
+        <!-- =========================================================================
+             ARABIC CONTENT (الجزء الأول - العربية)
+             ========================================================================= -->
+        <div id="content-ar" class="lang-content-ar active">
+
+            <!-- Quick Table of Contents -->
+            <div class="policy-toc">
+                <div class="policy-toc-title"><i class="fa-solid fa-compass"></i> الفهرس السريع لأقسام السياسة:</div>
+                <div class="policy-toc-grid">
+                    <a href="#ar-sec1" class="policy-toc-link"><i class="fa-solid fa-list-check"></i> 1. المعلومات التي نجمعها</a>
+                    <a href="#ar-sec2" class="policy-toc-link"><i class="fa-solid fa-bullseye"></i> 2. كيف نستخدم معلوماتك</a>
+                    <a href="#ar-sec3" class="policy-toc-link"><i class="fa-solid fa-handshake-slash"></i> 3. مشاركة البيانات والجهات الخارجية</a>
+                    <a href="#ar-sec4" class="policy-toc-link"><i class="fa-solid fa-shield-virus"></i> 4. أمان وحماية وتشفير البيانات</a>
+                    <a href="#ar-sec5" class="policy-toc-link"><i class="fa-solid fa-comment-dots"></i> 5. خصوصية المحادثات والرسائل</a>
+                    <a href="#ar-sec6" class="policy-toc-link"><i class="fa-solid fa-user-xmark"></i> 6. حقوق المستخدم وحذف البيانات</a>
+                    <a href="#ar-sec7" class="policy-toc-link"><i class="fa-solid fa-children"></i> 7. خصوصية الأطفال</a>
+                    <a href="#ar-sec8" class="policy-toc-link"><i class="fa-solid fa-file-pen"></i> 8. تحديثات سياسة الخصوصية</a>
+                    <a href="#ar-sec9" class="policy-toc-link"><i class="fa-solid fa-envelope"></i> 9. معلومات التواصل والدعم</a>
+                </div>
+            </div>
+
+            <!-- Introduction -->
+            <div class="policy-card">
+                <div class="policy-card-header">
+                    <div class="policy-card-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <div>
+                        <h2 class="policy-card-title">مقدمة وتعهد الخصوصية</h2>
+                        <small>VOLT FIT Data Privacy Commitment</small>
+                    </div>
+                </div>
+                <p class="policy-p">
+                    مرحباً بك في تطبيق <strong>VOLT FIT (فولت فيت)</strong> ("نحن"، "التطبيق"، أو "المنصة"). نحن نولي أهمية قصوى لخصوصية وسرية بياناتك الشخصية والصحية والبدنية.
+                </p>
+                <p class="policy-p">
+                    توضح سياسة الخصوصية هذه كيفية جمع واستخدام وتخزين وحماية بياناتك عند استخدامك لتطبيق VOLT FIT، بالإضافة إلى خياراتك وحقوقك الكاملة المتعلقة بهذه البيانات، بما يتوافق مع المعايير العالمية لحماية البيانات مثل اللائحة العامة لحماية البيانات (GDPR) ومتطلبات أمان البيانات في متجري <strong>Google Play Console</strong> و <strong>Apple App Store</strong>.
+                </p>
+                <div class="policy-alert success">
+                    <strong>تأكيد هام:</strong> باستخدامك لتطبيق VOLT FIT، فإنك توافق على ممارسات جمع واستخدام البيانات الموضحة في هذه الوثيقة لمساعدتك على تحقيق أهدافك البدنية والرياضية.
+                </div>
+            </div>
+
+            <!-- Section 1 -->
+            <div class="policy-card" id="ar-sec1">
+                <div class="policy-card-header">
+                    <div class="policy-card-icon"><i class="fa-solid fa-database"></i></div>
+                    <div>
+                        <h2 class="policy-card-title">1. المعلومات التي نجمعها (Information We Collect)</h2>
+                        <small>البيانات المباشرة والتقنية التي يتطلبها عمل التطبيق</small>
+                    </div>
+                </div>
+                <p class="policy-p">
+                    نجمع المعلومات التي تقدمها لنا بشكل مباشر أو التي يتم إنشاؤها تلقائياً أثناء استخدامك للتطبيق لتقديم خدمات تدريب وتغذية وتتبع أداء مخصصة:
+                </p>
+
+                <h3 class="policy-subheading"><i class="fa-solid fa-id-badge"></i> أ. البيانات الشخصية وبيانات الحساب:</h3>
+                <ul class="policy-ul">
+                    <li><strong>الاسم والبريد الإلكتروني:</strong> لإنشاء الحساب والمصادقة الآمنة واستعادة الوصول.</li>
+                    <li><strong>الصورة الشخصية:</strong> اختيارية بالكامل، في حال رغبتك في تخصيص بروفايلك الرياضي.</li>
+                    <li><strong>العمر، تاريخ الميلاد، والجنس:</strong> لحساب معادلات الأيض والحرق والسعرات بدقة علمية.</li>
+                    <li><strong>نوع الحساب والدور:</strong> تحديد ما إذا كان الحساب لمتدرب (Trainee) أو لمدرب معتمد (Coach/Trainer).</li>
+                </ul>
+
+                <h3 class="policy-subheading"><i class="fa-solid fa-dumbbell"></i> ب. البيانات الصحية والبدنية والرياضية (Fitness & Health Data):</h3>
+                <ul class="policy-ul">
+                    <li><strong>القياسات الجسمانية:</strong> الوزن الحالي، الطول، ونسبة الدهون التقريبية في الجسم.</li>
+                    <li><strong>سجلات التمارين الرياضية:</strong> الحركات المنفذة، الأوزان المرفوعة، التكرارات، المجموعات، وأقصى أوزان قياسية (Personal Records - PRs).</li>
+                    <li><strong>الخطط التدريبية:</strong> الجداول الأسبوعية، جلسات الكارديو، وحسابات القوة القصوى وتكرار الوزن الأقصى (1RM).</li>
+                </ul>
+
+                <h3 class="policy-subheading"><i class="fa-solid fa-utensils"></i> ج. السجلات الغذائية والنظام اليومي:</h3>
+                <ul class="policy-ul">
+                    <li>الوجبات المسجلة ومكوناتها، والسعرات الحرارية المستهدفة والمستهلكة.</li>
+                    <li>المغذيات الكبرى الحيوية (البروتين، الكاربوهيدرات، الدهون الصحية).</li>
+                    <li>سجل استهلاك الماء اليومي والتذكيرات المرتبطة به.</li>
+                </ul>
+
+                <h3 class="policy-subheading"><i class="fa-solid fa-camera"></i> د. الصور وكاميرا الجهاز:</h3>
+                <ul class="policy-ul">
+                    <li><strong>صور متابعة التطور البدني (Check-in Photos):</strong> في حال قررت رفع صور لمتابعة تطور شكل عضلاتك وجسمك مع مدربك، تُحفظ هذه الصور محلياً ومشفرة في السحابة ولا يتم نشرها أو عرضها للعامة أبداً.</li>
+                </ul>
+
+                <h3 class="policy-subheading"><i class="fa-solid fa-comments"></i> هـ. التواصل بين المتدرب والمدرب:</h3>
+                <ul class="policy-ul">
+                    <li>المحادثات المباشرة، التقييمات الأسبوعية، والملاحظات التدريبية المتبادلة بين الكوتش واللاعب داخل غرف الشات الخاصة.</li>
+                </ul>
+
+                <h3 class="policy-subheading"><i class="fa-solid fa-mobile-screen"></i> و. البيانات التقنية ومعرفات الجهاز:</h3>
+                <ul class="policy-ul">
+                    <li><strong>معرفات الإشعارات (Firebase Cloud Messaging - FCM Token):</strong> لإرسال تذكيرات مواعيد التمارين وشرب الماء وتنبيهات الكوتش.</li>
+                    <li><strong>بيانات العتاد والأداء:</strong> طراز الهاتف، إصدار نظام التشغيل، وتقارير الأعطال البرمجية لتحسين الاستقرار.</li>
+                </ul>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="policy-card" id="ar-sec2">
+                <div class="policy-card-header">
+                    <div class="policy-card-icon"><i class="fa-solid fa-sliders"></i></div>
+                    <div>
+                        <h2 class="policy-card-title">2. كيف نستخدم معلوماتك (How We Use Your Information)</h2>
+                        <small>الأغراض التشغيلية والرياضية الحصرية لمعالجة البيانات</small>
+                    </div>
+                </div>
+                <p class="policy-p">نستخدم المعلومات المجمعة حصرياً للأغراض التشغيلية والرياضية التالية:</p>
+                <ul class="policy-ul">
+                    <li><strong>تخصيص التجربة الرياضية:</strong> حساب معدل الأيض الأساسي (BMR) واحتياجك اليومي من السعرات والماكروز بناءً على وزنك ونشاطك.</li>
+                    <li><strong>الربط بين المدرب والمتدرب:</strong> تمكين المدرب من إنشاء جداول تدريب وأنظمة غذائية مخصصة للمتدرب ومتابعة التزامه.</li>
+                    <li><strong>التنبيهات والتذكيرات الذكية:</strong> إرسال إشعارات لتذكيرك بمواعيد شرب الماء، وجبات ما قبل/بعد التمرين، ووقت التمرين المحدد.</li>
+                    <li><strong>المزامنة السحابية الذكية (Offline-First Delta Sync):</strong> حفظ وتحديث بياناتك بسلاسة عبر السحابة لتمكينك من استرجاع حسابك عند تغيير هاتفك مع العمل بدون إنترنت.</li>
+                    <li><strong>تحسين أداء واستقرار التطبيق:</strong> معالجة المشاكل التقنية وتطوير وظائف التطبيق.</li>
+                </ul>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="policy-card" id="ar-sec3">
+                <div class="policy-card-header">
+                    <div class="policy-card-icon"><i class="fa-solid fa-handshake-slash"></i></div>
+                    <div>
+                        <h2 class="policy-card-title">3. مشاركة البيانات مع أطراف ثالثة (Third-Party Sharing)</h2>
+                        <small>التزام صارم بعدم بيع أو استغلال البيانات إعلانياً</small>
+                    </div>
+                </div>
+                <div class="policy-alert warning">
+                    <strong>سياسة عدم البيع الصارمة:</strong> نحن لا نبيع أو نؤجر أو نتاجر ببياناتك الشخصية أو الصحية لأي جهات تسويقية أو إعلانية أو وسطاء بيانات على الإطلاق.
+                </div>
+                <p class="policy-p">نشارك البيانات فقط مع مزودي البنية التحتية السحابية الموثوقين اللازمين لتشغيل التطبيق:</p>
+                <ul class="policy-ul">
+                    <li><strong>Google Firebase (Google Cloud Platform):</strong>
+                        <ul style="padding-right: 20px; margin-top: 5px;">
+                            <li><em>Firebase Authentication:</em> لإدارة تسجيل الدخول المشفر والتأكد من هوية المستخدم.</li>
+                            <li><em>Cloud Firestore & Realtime Database:</em> لتخزين ومزامنة البيانات السحابية بأمان تام وتشفير قياسي.</li>
+                            <li><em>Firebase Cloud Messaging (FCM):</em> لتوصيل الإشعارات والتذكيرات المجدولة لهاتفك.</li>
+                        </ul>
+                    </li>
+                    <li><strong>خدمات تسجيل الدخول من Google (Google Sign-In):</strong> لتمكين تسجيل الدخول السريع عبر بروتوكول OAuth الآمن.</li>
+                </ul>
+            </div>
+
+            <!-- Section 4 -->
+            <div class="policy-card" id="ar-sec4">
+                <div class="policy-card-header">
+                    <div class="policy-card-icon"><i class="fa-solid fa-lock"></i></div>
+                    <div>
+                        <h2 class="policy-card-title">4. أمان وحماية وتشفير البيانات (Data Security)</h2>
+                        <small>أعلى المعايير الهندسية لحماية الخصوصية الرقمية</small>
+                    </div>
+                </div>
+                <p class="policy-p">نطبق منظومة أمنية متعددة الطبقات لحماية معلوماتك من الوصول غير المصرح به:</p>
+                <ul class="policy-ul">
+                    <li><strong>التشفير أثناء النقل:</strong> يتم تشفير جميع الاتصالات والبيانات المتنقلة بين هاتفك وخوادم Firebase عبر بروتوكولات الأمان الحديثة (TLS 1.3 / SSL).</li>
+                    <li><strong>التشفير أثناء التخزين السحابي:</strong> تُخزن البيانات وقواعد البيانات باستخدام تشفير الأقراص المتقدم (AES-256).</li>
+                    <li><strong>التخزين المحلي الآمن على الجهاز:</strong> نستخدم وحدات التخزين المشفرة في الهاتف (Expo SecureStore / Encrypted Storage) لتخزين مفاتيح المصادقة الحساسة.</li>
+                    <li><strong>حماية النزاهة الرقمية:</strong> فحص ومطابقة التوقيعات الرقمية المشفرة (HMAC-based hashing) لحماية اشتراكات وحسابات المستخدمين من التلاعب.</li>
+                </ul>
+            </div>
+
+            <!-- Section 5 -->
+            <div class="policy-card" id="ar-sec5">
+                <div class="policy-card-header">
+                    <div class="policy-card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div>
+                        <h2 class="policy-card-title">5. خصوصية المحادثات والرسائل (Chat Privacy)</h2>
+                        <small>سرية كاملة للرسائل بين الكوتش والمتدرب</small>
+                    </div>
+                </div>
+                <ul class="policy-ul">
+                    <li>المحادثات المباشرة بين المدرب والمتدرب هي اتصالات خاصة ومحمية؛ ولا يتم بيعها أو فحصها لأغراض إعلانية.</li>
+                    <li>يمكن للمستخدم مسح سجل المحادثات محلياً في أي وقت بنقرة واحدة من خلال إعدادات التطبيق.</li>
+                </ul>
+            </div>
+
+            <!-- Section 6 -->
+            <div class="policy-card" id="ar-sec6">
+                <div class="policy-card-header">
+                    <div class="policy-card-icon"><i class="fa-solid fa-trash-can"></i></div>
+                    <div>
+                        <h2 class="policy-card-title">6. حقوق المستخدم وحذف الحساب والبيانات (User Rights & Data Deletion)</h2>
+                        <small>الامتثال الكامل لسياسات Google Play و Apple في حق مسح البيانات</small>
+                    </div>
+                </div>
+                <p class="policy-p">لك كامل السيطرة والتحكم القانوني في بياناتك الشخصية والرياضية:</p>
+                <ul class="policy-ul">
+                    <li><strong>حق الوصول والتعديل:</strong> يمكنك مراجعة وتعديل بيانات ملفك الشخصي أو قياساتك أو وجباتك في أي وقت مباشرة من الشاشات المخصصة داخل التطبيق.</li>
+                    <li><strong>زر الحذف الفوري داخل التطبيق (CLEAR ALL DATA):</strong>
+                        <div class="policy-alert danger" style="margin-top: 8px;">
+                            تطبيقاً لمتطلبات متجر <strong>Google Play</strong> ومتجر <strong>Apple App Store</strong> الصارمة بخصوص حذف الحسابات، يوفر التطبيق خياراً مباشراً وواضحاً داخل شاشة الملف الشخصي (Profile) بعنوان <strong>"مسح كافة البيانات (CLEAR ALL DATA)"</strong>.<br>
+                            عند الضغط على هذا الزر وتأكيد العملية، يتم فوراً وبشكل نهائي حذف جميع سجلات التمارين، سجلات التغذية، القياسات، الصور، والمحادثات من هاتفك ومن خوادم السحابة المرتبطة بحسابك بشكل نهائي لا رجعة فيه.
+                        </div>
+                    </li>
+                    <li><strong>طلب الحذف عبر البريد الإلكتروني:</strong> يمكنك في أي وقت طلب حذف حسابك وبياناتك المرتبطة نهائياً عن طريق مراسلتنا على: <a href="mailto:khoz3a.fitness@gmail.com" style="color: var(--primary); font-weight: bold;">khoz3a.fitness@gmail.com</a>، وسيتم تنفيذ طلبك فوراً خلال مدة أقصاها 48 ساعة.</li>
+                </ul>
+            </div>
+
+            <!-- Section 7 -->
+            <div class="policy-card" id="ar-sec7">
+                <div class="policy-card-header">
+                    <div class="policy-card-icon"><i class="fa-solid fa-child-reaching"></i></div>
+                    <div>
+                        <h2 class="policy-card-title">7. خصوصية الأطفال (Children's Privacy)</h2>
+                        <small>حماية بيانات القاصرين</small>
+                    </div>
+                </div>
+                <p class="policy-p">
+                    تطبيق VOLT FIT غير موجه للأطفال دون سن 13 عاماً (أو 16 عاماً في دول الاتحاد الأوروبي والخاضعة لـ GDPR). نحن لا نجمع بيانات شخصية عن قصد من الأطفال. إذا علمنا بأننا قمنا بجمع بيانات من قاصر دون موافقة ولي الأمر المؤكدة، سنتخذ خطوات فورية لحذف تلك البيانات من خوادمنا بشكل كامل.
+                </p>
+            </div>
+
+            <!-- Section 8 -->
+            <div class="policy-card" id="ar-sec8">
+                <div class="policy-card-header">
+                    <div class="policy-card-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
+                    <div>
+                        <h2 class="policy-card-title">8. التعديلات على سياسة الخصوصية (Updates to Policy)</h2>
+                        <small>آلية تحديث ومراجعة السياسة</small>
+                    </div>
+                </div>
+                <p class="policy-p">
+                    قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر لتعكس التحديثات في ميزات التطبيق أو المتطلبات القانونية والتنظيمية. سيتم إخطار المستخدمين بأي تغييرات جوهرية عبر إشعار داخلي في التطبيق أو بتحديث تاريخ "آخر تحديث" أعلى هذه الصفحة.
+                </p>
+            </div>
+
+            <!-- Section 9 -->
+            <div class="policy-card" id="ar-sec9">
+                <div class="policy-card-header">
+                    <div class="policy-card-icon"><i class="fa-solid fa-headset"></i></div>
+                    <div>
+                        <h2 class="policy-card-title">9. اتصل بنا (Contact Us)</h2>
+                        <small>بيانات التواصل المباشرة مع المطور المسؤول</small>
+                    </div>
+                </div>
+                <p class="policy-p">
+                    إذا كان لديك أي أسئلة أو استفسارات أو طلبات بخصوص سياسة الخصوصية أو بياناتك الشخصية، يسعدنا تواصلك المباشر معنا:
+                </p>
+                <div class="policy-contact-grid">
+                    <a href="mailto:khoz3a.fitness@gmail.com" class="policy-contact-box">
+                        <div class="policy-contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="policy-contact-info">
+                            <small>البريد الإلكتروني للدعم والخصوصية</small>
+                            <span>khoz3a.fitness@gmail.com</span>
+                        </div>
+                    </a>
+                    <div class="policy-contact-box">
+                        <div class="policy-contact-icon"><i class="fa-solid fa-user-gear"></i></div>
+                        <div class="policy-contact-info">
+                            <small>المطور ومسؤول حماية البيانات</small>
+                            <span>سيف الدين حسام (Seif Hossam)</span>
+                        </div>
+                    </div>
+                    <a href="https://seifhossam.com/" target="_blank" class="policy-contact-box">
+                        <div class="policy-contact-icon"><i class="fa-solid fa-globe"></i></div>
+                        <div class="policy-contact-info">
+                            <small>الموقع الرسمي للمطور</small>
+                            <span>seifhossam.com</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- =========================================================================
+             ENGLISH CONTENT (Part Two - English)
+             ========================================================================= -->
+        <div id="content-en" class="lang-content-en">
+
+            <!-- Quick Table of Contents -->
+            <div class="policy-toc">
+                <div class="policy-toc-title"><i class="fa-solid fa-compass"></i> Quick Navigation Index:</div>
+                <div class="policy-toc-grid">
+                    <a href="#en-sec1" class="policy-toc-link"><i class="fa-solid fa-list-check"></i> 1. Information We Collect</a>
+                    <a href="#en-sec2" class="policy-toc-link"><i class="fa-solid fa-bullseye"></i> 2. How We Use Your Information</a>
+                    <a href="#en-sec3" class="policy-toc-link"><i class="fa-solid fa-handshake-slash"></i> 3. Third-Party Sharing</a>
+                    <a href="#en-sec4" class="policy-toc-link"><i class="fa-solid fa-shield-virus"></i> 4. Data Security & Integrity</a>
+                    <a href="#en-sec5" class="policy-toc-link"><i class="fa-solid fa-comment-dots"></i> 5. Chat & Communication Privacy</a>
+                    <a href="#en-sec6" class="policy-toc-link"><i class="fa-solid fa-user-xmark"></i> 6. User Rights & Data Deletion</a>
+                    <a href="#en-sec7" class="policy-toc-link"><i class="fa-solid fa-children"></i> 7. Children's Privacy</a>
+                    <a href="#en-sec8" class="policy-toc-link"><i class="fa-solid fa-file-pen"></i> 8. Changes to Policy</a>
+                    <a href="#en-sec9" class="policy-toc-link"><i class="fa-solid fa-envelope"></i> 9. Contact & Support</a>
+                </div>
+            </div>
+
+            <!-- Introduction -->
+            <div class="policy-card">
+                <div class="policy-card-header">
+                    <div class="policy-card-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <div>
+                        <h2 class="policy-card-title">Introduction & Commitment</h2>
+                        <small>VOLT FIT Data Protection Declaration</small>
+                    </div>
+                </div>
+                <p class="policy-p">
+                    Welcome to <strong>VOLT FIT</strong> ("we", "our", "us", or the "Application"). We are committed to protecting your privacy and ensuring the confidentiality and security of your personal, health, and fitness data.
+                </p>
+                <p class="policy-p">
+                    This Privacy Policy explains how we collect, use, store, and disclose your information when you use our mobile application, as well as your choices and rights regarding your personal information, in strict compliance with global data protection standards including the <strong>General Data Protection Regulation (GDPR)</strong>, <strong>Google Play Console Data Safety</strong> guidelines, and <strong>Apple App Store Review Guidelines</strong>.
+                </p>
+                <div class="policy-alert success">
+                    <strong>Consent:</strong> By downloading, accessing, or using VOLT FIT, you agree to the collection and use of information in accordance with this policy to empower your physical fitness journey.
+                </div>
+            </div>
+
+            <!-- Section 1 -->
+            <div class="policy-card" id="en-sec1">
+                <div class="policy-card-header">
+                    <div class="policy-card-icon"><i class="fa-solid fa-database"></i></div>
+                    <div>
+                        <h2 class="policy-card-title">1. Information We Collect</h2>
+                        <small>Direct and automated data necessary for app functionality</small>
+                    </div>
+                </div>
+                <p class="policy-p">
+                    We collect information that you directly provide to us or that is generated through your use of the Application:
+                </p>
+
+                <h3 class="policy-subheading"><i class="fa-solid fa-id-badge"></i> A. Personal & Account Information:</h3>
+                <ul class="policy-ul">
+                    <li><strong>Full Name and Email Address:</strong> For user authentication, account security, and recovery.</li>
+                    <li><strong>Profile Photo:</strong> Optional, uploaded if you choose to personalize your athletic profile.</li>
+                    <li><strong>Age, Date of Birth, and Gender:</strong> Required to calculate accurate Basal Metabolic Rate (BMR) and caloric expenditure.</li>
+                    <li><strong>Account Role:</strong> Identifies whether the account functions as a Trainee or a Certified Coach/Trainer.</li>
+                </ul>
+
+                <h3 class="policy-subheading"><i class="fa-solid fa-dumbbell"></i> B. Health, Body & Fitness Data:</h3>
+                <ul class="policy-ul">
+                    <li><strong>Body Measurements:</strong> Current weight, height, and estimated body fat percentage.</li>
+                    <li><strong>Workout Logs:</strong> Exercises performed, sets, reps, weights lifted, and Personal Records (PRs).</li>
+                    <li><strong>Training Programs:</strong> Weekly split schedules, cardio sessions, and calculated One-Rep Max (1RM) benchmarks.</li>
+                </ul>
+
+                <h3 class="policy-subheading"><i class="fa-solid fa-utensils"></i> C. Nutrition & Dietary Logs:</h3>
+                <ul class="policy-ul">
+                    <li>Logged meals, food items, targeted calories, and actual caloric intake.</li>
+                    <li>Macronutrients breakdown (Protein, Carbohydrates, Dietary Fats).</li>
+                    <li>Daily water hydration logs and drinking goals.</li>
+                </ul>
+
+                <h3 class="policy-subheading"><i class="fa-solid fa-camera"></i> D. Camera & Photo Access:</h3>
+                <ul class="policy-ul">
+                    <li><strong>Body Transformation Photos (Check-in Photos):</strong> If you choose to upload photos to track your physical progress with your assigned coach. These photos are encrypted in transit, privately stored, and never made publicly visible.</li>
+                </ul>
+
+                <h3 class="policy-subheading"><i class="fa-solid fa-comments"></i> E. Coach-Trainee Communication:</h3>
+                <ul class="policy-ul">
+                    <li>Direct private messages, weekly check-in reviews, and training notes exchanged between coach and trainee.</li>
+                </ul>
+
+                <h3 class="policy-subheading"><i class="fa-solid fa-mobile-screen"></i> F. Technical & Device Information:</h3>
+                <ul class="policy-ul">
+                    <li><strong>Push Notification Tokens (Firebase Cloud Messaging - FCM Token):</strong> Used exclusively to deliver workout reminders, hydration alerts, and coach notifications.</li>
+                    <li><strong>Device Diagnostics:</strong> Hardware model, OS version, and crash logs to maintain application stability.</li>
+                </ul>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="policy-card" id="en-sec2">
+                <div class="policy-card-header">
+                    <div class="policy-card-icon"><i class="fa-solid fa-sliders"></i></div>
+                    <div>
+                        <h2 class="policy-card-title">2. How We Use Your Information</h2>
+                        <small>Strictly limited to fitness engineering and coaching purposes</small>
+                    </div>
+                </div>
+                <p class="policy-p">We use the collected information exclusively for legitimate fitness and operational purposes:</p>
+                <ul class="policy-ul">
+                    <li><strong>Personalized Fitness & Nutrition Planning:</strong> Calculating Basal Metabolic Rate (BMR), Total Daily Energy Expenditure (TDEE), and tailored macro targets.</li>
+                    <li><strong>Coach-to-Client Management:</strong> Enabling coaches to assign customized training routines, review progress photos, and monitor compliance.</li>
+                    <li><strong>Smart Reminders & Haptics:</strong> Delivering timely push notifications for hydration intervals, workout times, and rest intervals.</li>
+                    <li><strong>Hybrid Cloud Synchronization (Offline-First Delta Sync):</strong> Seamlessly syncing data to Google Firebase when online, while guaranteeing 100% offline functionality in the gym.</li>
+                    <li><strong>Platform Security & Bug Resolution:</strong> Addressing technical bugs and optimizing performance across Android and iOS devices.</li>
+                </ul>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="policy-card" id="en-sec3">
+                <div class="policy-card-header">
+                    <div class="policy-card-icon"><i class="fa-solid fa-handshake-slash"></i></div>
+                    <div>
+                        <h2 class="policy-card-title">3. Data Sharing & Third-Party Service Providers</h2>
+                        <small>Zero tolerance for data selling or unauthorized monetization</small>
+                    </div>
+                </div>
+                <div class="policy-alert warning">
+                    <strong>Zero-Monetization Pledge:</strong> We do NOT sell, rent, lease, monetize, or trade your personal or health data to third-party advertisers, brokers, or marketing entities under any circumstances.
+                </div>
+                <p class="policy-p">We share data strictly with trusted infrastructure providers required to operate the application:</p>
+                <ul class="policy-ul">
+                    <li><strong>Google Firebase (Google Cloud Platform):</strong>
+                        <ul style="padding-left: 20px; margin-top: 5px;">
+                            <li><em>Firebase Authentication:</em> For secure token management and user authentication.</li>
+                            <li><em>Cloud Firestore & Realtime Database:</em> For encrypted real-time cloud data storage and backup.</li>
+                            <li><em>Firebase Cloud Messaging (FCM):</em> For delivering timely push notifications.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Google Sign-In Services:</strong> For reliable single-sign-on OAuth authentication.</li>
+                </ul>
+            </div>
+
+            <!-- Section 4 -->
+            <div class="policy-card" id="en-sec4">
+                <div class="policy-card-header">
+                    <div class="policy-card-icon"><i class="fa-solid fa-lock"></i></div>
+                    <div>
+                        <h2 class="policy-card-title">4. Data Security & Cryptographic Integrity</h2>
+                        <small>End-to-end security protocols for digital wellness</small>
+                    </div>
+                </div>
+                <p class="policy-p">We implement industry-standard encryption protocols and protective controls:</p>
+                <ul class="policy-ul">
+                    <li><strong>Encryption in Transit:</strong> All data transmitted between your device and Firebase servers is encrypted using modern TLS 1.3 / SSL protocols.</li>
+                    <li><strong>Encryption at Rest:</strong> Cloud databases and media stores are protected using advanced AES-256 disk encryption.</li>
+                    <li><strong>Device-Level Encrypted Storage:</strong> Sensitive tokens and credentials reside inside secure device hardware (Expo SecureStore / Encrypted Storage).</li>
+                    <li><strong>Cryptographic Verification:</strong> Subscription integrity and app states are verified through HMAC-based digital signatures to prevent tampering.</li>
+                </ul>
+            </div>
+
+            <!-- Section 5 -->
+            <div class="policy-card" id="en-sec5">
+                <div class="policy-card-header">
+                    <div class="policy-card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div>
+                        <h2 class="policy-card-title">5. Chat & Communication Privacy</h2>
+                        <small>Guaranteed confidentiality in coach-athlete dialogue</small>
+                    </div>
+                </div>
+                <ul class="policy-ul">
+                    <li>Direct messaging between coach and trainee is private and strictly protected. We do not inspect or parse message contents for advertising.</li>
+                    <li>Users can wipe their local chat history at any time from the app settings menu.</li>
+                </ul>
+            </div>
+
+            <!-- Section 6 -->
+            <div class="policy-card" id="en-sec6">
+                <div class="policy-card-header">
+                    <div class="policy-card-icon"><i class="fa-solid fa-trash-can"></i></div>
+                    <div>
+                        <h2 class="policy-card-title">6. User Rights & Complete Data Deletion</h2>
+                        <small>GDPR, Google Play, and Apple App Store full compliance</small>
+                    </div>
+                </div>
+                <p class="policy-p">You possess full legal rights over your personal and health records:</p>
+                <ul class="policy-ul">
+                    <li><strong>Access and Rectification:</strong> You can review, update, or edit your personal metrics, diet logs, and workout records at any time within the app.</li>
+                    <li><strong>In-App Immediate Data Deletion ("CLEAR ALL DATA"):</strong>
+                        <div class="policy-alert danger" style="margin-top: 8px;">
+                            In strict compliance with <strong>Google Play Console</strong> and <strong>Apple App Store</strong> account deletion mandates, the app features an explicit, dedicated button inside the Profile screen titled <strong>"CLEAR ALL DATA"</strong>.<br>
+                            Confirming this action immediately and permanently wipes all workout logs, nutrition logs, personal records, progress photos, and chat history from both your local device storage and our cloud Firebase database.
+                        </div>
+                    </li>
+                    <li><strong>Email Deletion Request:</strong> You may also request permanent account and record deletion by emailing us at: <a href="mailto:khoz3a.fitness@gmail.com" style="color: var(--primary); font-weight: bold;">khoz3a.fitness@gmail.com</a>. Requests are processed within 48 hours.</li>
+                </ul>
+            </div>
+
+            <!-- Section 7 -->
+            <div class="policy-card" id="en-sec7">
+                <div class="policy-card-header">
+                    <div class="policy-card-icon"><i class="fa-solid fa-child-reaching"></i></div>
+                    <div>
+                        <h2 class="policy-card-title">7. Children's Privacy</h2>
+                        <small>Protection of minors</small>
+                    </div>
+                </div>
+                <p class="policy-p">
+                    VOLT FIT is not directed at children under the age of 13 (or under 16 in the European Union). We do not knowingly collect personally identifiable information from children. If we discover that a minor has provided personal information without verifiable parental consent, we will take immediate steps to delete such data from our servers.
+                </p>
+            </div>
+
+            <!-- Section 8 -->
+            <div class="policy-card" id="en-sec8">
+                <div class="policy-card-header">
+                    <div class="policy-card-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
+                    <div>
+                        <h2 class="policy-card-title">8. Changes to This Privacy Policy</h2>
+                        <small>Notice of updates</small>
+                    </div>
+                </div>
+                <p class="policy-p">
+                    We may update our Privacy Policy periodically to reflect enhancements to our features or regulatory requirements. We will notify you of any material changes by updating the "Last Updated" date at the top of this page or via an in-app banner.
+                </p>
+            </div>
+
+            <!-- Section 9 -->
+            <div class="policy-card" id="en-sec9">
+                <div class="policy-card-header">
+                    <div class="policy-card-icon"><i class="fa-solid fa-headset"></i></div>
+                    <div>
+                        <h2 class="policy-card-title">9. Contact Us</h2>
+                        <small>Direct developer and data controller contact</small>
+                    </div>
+                </div>
+                <p class="policy-p">
+                    If you have any questions, inquiries, or data requests regarding this Privacy Policy or your personal information, please reach out to us:
+                </p>
+                <div class="policy-contact-grid">
+                    <a href="mailto:khoz3a.fitness@gmail.com" class="policy-contact-box">
+                        <div class="policy-contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="policy-contact-info">
+                            <small>Support & Privacy Email</small>
+                            <span>khoz3a.fitness@gmail.com</span>
+                        </div>
+                    </a>
+                    <div class="policy-contact-box">
+                        <div class="policy-contact-icon"><i class="fa-solid fa-user-gear"></i></div>
+                        <div class="policy-contact-info">
+                            <small>Developer & Data Controller</small>
+                            <span>SEIF AL-DEEN HOSSAM (Seif Hossam)</span>
+                        </div>
+                    </div>
+                    <a href="https://seifhossam.com/" target="_blank" class="policy-contact-box">
+                        <div class="policy-contact-icon"><i class="fa-solid fa-globe"></i></div>
+                        <div class="policy-contact-info">
+                            <small>Official Portfolio</small>
+                            <span>seifhossam.com</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="policy-footer">
+        <p>© 2026 <strong>SEIF HOSSAM</strong> • <strong>VOLT FIT</strong>. All rights reserved. | جميع الحقوق محفوظة.</p>
+        <p style="margin-top: 6px;"><a href="index.html">← Back to Portfolio / العودة للرئيسية</a></p>
+    </footer>
+
+    <!-- Interactive Script: Language Synchronization & Custom Cursor -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            /* =========================================
+               1. Language Synchronization Logic
+               ========================================= */
+            const tabs = document.querySelectorAll('.policy-lang-tab');
+            const arContent = document.getElementById('content-ar');
+            const enContent = document.getElementById('content-en');
+            const backText = document.getElementById('back-text');
+
+            function applyLang(lang, updateStorage = true) {
+                tabs.forEach(t => {
+                    if (t.getAttribute('data-lang') === lang) {
+                        t.classList.add('active');
+                    } else {
+                        t.classList.remove('active');
+                    }
+                });
+
+                if (lang === 'ar') {
+                    document.documentElement.lang = 'ar';
+                    document.documentElement.dir = 'rtl';
+                    document.body.dir = 'rtl';
+                    arContent.classList.add('active');
+                    enContent.classList.remove('active');
+                    if (backText) backText.textContent = 'العودة للمشاريع';
+                } else {
+                    document.documentElement.lang = 'en';
+                    document.documentElement.dir = 'ltr';
+                    document.body.dir = 'ltr';
+                    enContent.classList.add('active');
+                    arContent.classList.remove('active');
+                    if (backText) backText.textContent = 'Back to Projects';
+                }
+
+                if (updateStorage) {
+                    try {
+                        localStorage.setItem('portfolio_lang', lang);
+                    } catch (e) {}
+                }
+            }
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const lang = tab.getAttribute('data-lang');
+                    applyLang(lang, true);
+                });
+            });
+
+            // Determine initial language: URL query > URL hash > localStorage > default 'en'
+            const params = new URLSearchParams(window.location.search);
+            const queryLang = params.get('lang');
+            const hashLang = window.location.hash.replace('#', '');
+            let initialLang = 'en';
+
+            if (queryLang === 'en' || queryLang === 'ar') {
+                initialLang = queryLang;
+            } else if (hashLang === 'en' || hashLang === 'ar') {
+                initialLang = hashLang;
+            } else {
+                try {
+                    const saved = localStorage.getItem('portfolio_lang');
+                    if (saved === 'en' || saved === 'ar') {
+                        initialLang = saved;
+                    }
+                } catch (e) {}
+            }
+
+            applyLang(initialLang, false);
+
+            /* =========================================
+               2. Animated Custom Cursor
+               ========================================= */
+            const cursor = document.getElementById('cursor');
+            const cursorBlur = document.getElementById('cursor-blur');
+
+            if (cursor && cursorBlur) {
+                document.addEventListener('mousemove', (e) => {
+                    cursor.style.left = e.clientX + 'px';
+                    cursor.style.top = e.clientY + 'px';
+                    cursorBlur.style.left = e.clientX + 'px';
+                    cursorBlur.style.top = e.clientY + 'px';
+                });
+
+                const hoverElements = document.querySelectorAll(
+                    'a, button, .policy-card, .policy-lang-tab, .policy-back-btn, .policy-toc-link, .policy-contact-box, .policy-app-icon-card, .policy-badge'
+                );
+
+                hoverElements.forEach(el => {
+                    el.addEventListener('mouseenter', () => {
+                        cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                        cursor.style.background = 'rgba(0, 255, 249, 0.12)';
+                        cursorBlur.style.opacity = '0.35';
+                    });
+                    el.addEventListener('mouseleave', () => {
+                        cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+                        cursor.style.background = 'transparent';
+                        cursorBlur.style.opacity = '0.15';
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

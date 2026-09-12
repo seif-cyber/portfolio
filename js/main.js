@@ -145,7 +145,10 @@ document.addEventListener('DOMContentLoaded', () => {
             footerDesc: "Currently looking for new opportunities. My inbox is always open.",
             sayHello: "Say Hello",
             openProject: "Open Project",
+            privacyPolicy: "Privacy Policy",
             rights: "© 2026 Seif Hossam. All rights reserved.",
+            voltfitTitle: "VOLT FIT - Fitness & Coaching App",
+            voltfitDesc: "A high-performance, offline-first cross-platform fitness app built with React Native (Expo) & Zustand. Features 24 screens, real-time Firebase sync, workout tracking with PR detection, 3-color circular macro nutrition tracker, 1RM calculator, and coach management with encrypted chat.",
             project1Title: "E-Commerce Dashboard",
             project1Desc: "A comprehensive seller dashboard built with React.js. Features real-time data visualization and sales reporting.",
             project2Title: "Farida Marketing Agency",
@@ -196,7 +199,10 @@ document.addEventListener('DOMContentLoaded', () => {
             footerDesc: "أبحث حالياً عن فرص جديدة. بريدي الإلكتروني متاح دائماً.",
             sayHello: "أرسل رسالة",
             openProject: "عرض المشروع",
+            privacyPolicy: "سياسة الخصوصية",
             rights: "© 2026 سيف حسام. جميع الحقوق محفوظة.",
+            voltfitTitle: "تطبيق VOLT FIT الرياضي المتكامل",
+            voltfitDesc: "تطبيق لياقة وتدريب شامل يعمل بنظام (Offline-First) مبني بـ React Native (Expo) و Zustand. يضم 24 شاشة، مزامنة سحابية مع Firebase، تتبع حي للتمارين والأرقام القياسية (PR)، حلقة ماكروز وسعرات دائرية، ونظام متكامل للمدربين واللاعبين بمحادثات مشفرة.",
             project1Title: "لوحة تحكم التجارة الإلكترونية",
             project1Desc: "لوحة تحكم بائع شاملة مبنية بـ React.js. تتميز بعرض البيانات الفوري وتقارير المبيعات.",
             project2Title: "شركة فريدة للتسويق",
@@ -230,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (langBtn) {
         langBtn.addEventListener('click', () => {
             currentLang = currentLang === 'en' ? 'ar' : 'en';
-            langBtn.textContent = currentLang.toUpperCase();
+            langBtn.textContent = currentLang === 'ar' ? 'EN' : 'AR';
 
             // Toggle RTL/LTR
             document.documentElement.lang = currentLang;
@@ -283,21 +289,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Project Items
             const projectCards = document.querySelectorAll('.project-card');
-            if (projectCards.length >= 3) {
-                // Project 1
-                projectCards[0].querySelector('.project-title').textContent = t.project1Title;
-                projectCards[0].querySelector('.project-description').textContent = t.project1Desc;
-
-                // Project 2
-                projectCards[1].querySelector('.project-title').textContent = t.project2Title;
-                projectCards[1].querySelector('.project-description').textContent = t.project2Desc;
-                projectCards[1].querySelector('.btn-sm').textContent = t.openProject;
-
-                // Project 3
-                projectCards[2].querySelector('.project-title').textContent = t.project3Title;
-                projectCards[2].querySelector('.project-description').textContent = t.project3Desc;
-                projectCards[2].querySelector('.btn-sm').textContent = t.openProject;
-            }
+            projectCards.forEach(card => {
+                const pKey = card.getAttribute('data-project');
+                if (pKey && t[`${pKey}Title`]) {
+                    const titleEl = card.querySelector('.project-title');
+                    const descEl = card.querySelector('.project-description');
+                    const btnEl = card.querySelector('.btn-sm:not(.privacy-btn)');
+                    const privacyBtn = card.querySelector('.privacy-btn');
+                    const privacySpan = card.querySelector('.privacy-btn span');
+                    if (titleEl) titleEl.textContent = t[`${pKey}Title`];
+                    if (descEl) descEl.textContent = t[`${pKey}Desc`];
+                    if (btnEl) btnEl.textContent = t.openProject;
+                    if (privacySpan && t.privacyPolicy) privacySpan.textContent = t.privacyPolicy;
+                    if (privacyBtn) privacyBtn.setAttribute('href', `privacy-policy.html?lang=${currentLang}`);
+                }
+            });
 
             // Soft Skills Individual Titles & Lists
             const softSkillCards = document.querySelectorAll('#soft-skills .skill-category-card');
@@ -331,7 +337,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const sayHelloBtn = document.querySelector('footer .cta-buttons .btn');
             if (sayHelloBtn) sayHelloBtn.textContent = t.sayHello;
+
+            // Save preference
+            try {
+                localStorage.setItem('portfolio_lang', currentLang);
+            } catch (e) {}
         });
+
+        // Initialize from saved preference if available
+        try {
+            const savedLang = localStorage.getItem('portfolio_lang');
+            if (savedLang === 'ar') {
+                langBtn.click();
+            }
+        } catch (e) {}
     }
 
     /* =========================================
@@ -403,5 +422,40 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-up, .zoom-in, .slide-in-left, .slide-in-right, .fade-in').forEach(el => observer.observe(el));
+
+    /* =========================================
+       10. VOLT FIT Video Autoplay (Plays 2 times, then freezes on last frame)
+       ========================================= */
+    const voltfitVideo = document.querySelector('.voltfit-video-bg');
+    if (voltfitVideo) {
+        let playCount = 0;
+        const maxPlays = 2;
+
+        const startVideo = () => {
+            if (playCount < maxPlays) {
+                const playPromise = voltfitVideo.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(() => {});
+                }
+            }
+        };
+
+        voltfitVideo.addEventListener('ended', () => {
+            playCount++;
+            if (playCount < maxPlays) {
+                voltfitVideo.currentTime = 0;
+                voltfitVideo.play().catch(() => {});
+            } else {
+                // Freeze on the last frame
+                voltfitVideo.pause();
+            }
+        });
+
+        startVideo();
+        window.addEventListener('load', startVideo, { once: true });
+        document.addEventListener('click', startVideo, { once: true });
+        document.addEventListener('touchstart', startVideo, { once: true });
+        document.addEventListener('scroll', startVideo, { once: true });
+    }
 });
 

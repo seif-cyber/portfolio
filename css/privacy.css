@@ -1,0 +1,586 @@
+/* ==========================================================================
+   VOLT FIT - Privacy Policy Dedicated Stylesheet
+   ========================================================================== */
+
+.policy-page {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Touch devices fallback */
+@media (hover: none) or (pointer: coarse) {
+    body.policy-page {
+        cursor: auto;
+    }
+    #cursor,
+    #cursor-blur {
+        display: none !important;
+    }
+}
+
+/* Background Glowing Orbs */
+.policy-page::before {
+    content: '';
+    position: fixed;
+    top: -10%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 243, 255, 0.07) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.policy-page::after {
+    content: '';
+    position: fixed;
+    bottom: -10%;
+    left: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(188, 19, 254, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Top Sticky Header */
+.policy-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--nav-border);
+    padding: 16px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.policy-nav .brand {
+    font-family: var(--font-en);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.policy-nav .brand span {
+    color: var(--primary);
+}
+
+.policy-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.policy-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.04);
+    transition: all 0.3s ease;
+}
+
+.policy-back-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+/* Language Toggle Switcher */
+.policy-lang-switch {
+    display: inline-flex;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(0, 243, 255, 0.25);
+    border-radius: 30px;
+    padding: 3px;
+    gap: 3px;
+}
+
+.policy-lang-tab {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.policy-lang-tab.active {
+    background: var(--primary);
+    color: #040910;
+    box-shadow: 0 0 12px rgba(0, 243, 255, 0.4);
+}
+
+/* Main Container */
+.policy-container {
+    max-width: 980px;
+    margin: 40px auto 80px;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Hero Banner */
+.policy-hero {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 45px 30px;
+    background: var(--card-bg);
+    border: 1px solid rgba(0, 243, 255, 0.2);
+    border-radius: 24px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.policy-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 243, 255, 0.1) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.policy-app-icon-card {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background: rgba(0, 243, 255, 0.06);
+    border: 2px solid rgba(0, 243, 255, 0.4);
+    border-radius: 32px;
+    box-shadow: 0 12px 40px rgba(0, 243, 255, 0.28), inset 0 0 25px rgba(0, 243, 255, 0.1);
+    margin-bottom: 24px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: iconCardPulse 3.5s infinite ease-in-out;
+}
+
+.policy-app-icon-card:hover {
+    transform: translateY(-5px) scale(1.04);
+    border-color: var(--primary);
+    box-shadow: 0 16px 50px rgba(0, 243, 255, 0.55), inset 0 0 35px rgba(0, 243, 255, 0.2);
+}
+
+.policy-app-icon {
+    width: 140px;
+    height: 140px;
+    border-radius: 24px;
+    margin-bottom: 0;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    border: 1.5px solid rgba(0, 243, 255, 0.35);
+    object-fit: cover;
+    display: block;
+}
+
+@keyframes iconCardPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 12px 40px rgba(0, 243, 255, 0.28), inset 0 0 25px rgba(0, 243, 255, 0.1);
+    }
+    50% {
+        transform: scale(1.03);
+        box-shadow: 0 16px 55px rgba(0, 243, 255, 0.5), inset 0 0 35px rgba(0, 243, 255, 0.2);
+    }
+}
+
+.policy-title {
+    font-size: 2.2rem;
+    font-family: var(--font-en);
+    margin-bottom: 12px;
+    color: #ffffff;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.policy-meta {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.policy-badges {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.policy-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0, 243, 255, 0.08);
+    border: 1px solid rgba(0, 243, 255, 0.25);
+    color: var(--primary);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.policy-badge.green {
+    background: rgba(0, 230, 118, 0.1);
+    border-color: rgba(0, 230, 118, 0.35);
+    color: #00E676;
+}
+
+.policy-badge.purple {
+    background: rgba(188, 19, 254, 0.1);
+    border-color: rgba(188, 19, 254, 0.35);
+    color: #d86bff;
+}
+
+/* Quick Jump Navigation */
+.policy-toc {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 20px 25px;
+    margin-bottom: 35px;
+    backdrop-filter: blur(10px);
+}
+
+.policy-toc-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.policy-toc-title i {
+    color: var(--primary);
+}
+
+.policy-toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 10px;
+}
+
+.policy-toc-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.policy-toc-link:hover {
+    color: var(--primary);
+    background: rgba(0, 243, 255, 0.08);
+    transform: translateX(4px);
+}
+
+body[dir="rtl"] .policy-toc-link:hover {
+    transform: translateX(-4px);
+}
+
+/* Content Section Cards */
+.policy-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 32px;
+    margin-bottom: 24px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.policy-card:hover {
+    border-color: rgba(0, 243, 255, 0.3);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+.policy-card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 15px;
+}
+
+.policy-card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(0, 243, 255, 0.1);
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.policy-card-title {
+    font-size: 1.35rem;
+    color: #ffffff;
+    font-weight: 700;
+    margin: 0;
+}
+
+.policy-card-title small {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    margin-top: 3px;
+}
+
+.policy-p {
+    line-height: 1.85;
+    color: #cbd5e1;
+    font-size: 1rem;
+    margin-bottom: 16px;
+}
+
+.policy-subheading {
+    font-size: 1.1rem;
+    color: #38bdf8;
+    margin: 22px 0 10px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.policy-ul {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 20px;
+}
+
+.policy-ul li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 10px;
+    line-height: 1.7;
+    color: #e2e8f0;
+}
+
+body[dir="rtl"] .policy-ul li {
+    padding-left: 0;
+    padding-right: 24px;
+}
+
+.policy-ul li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+body[dir="rtl"] .policy-ul li::before {
+    content: "◃";
+    left: auto;
+    right: 0;
+}
+
+/* Highlight / Alert Boxes */
+.policy-alert {
+    background: rgba(0, 243, 255, 0.06);
+    border-left: 4px solid var(--primary);
+    border-radius: 0 12px 12px 0;
+    padding: 18px 22px;
+    margin: 20px 0;
+    line-height: 1.7;
+}
+
+body[dir="rtl"] .policy-alert {
+    border-left: none;
+    border-right: 4px solid var(--primary);
+    border-radius: 12px 0 0 12px;
+}
+
+.policy-alert.success {
+    background: rgba(0, 230, 118, 0.08);
+    border-color: #00E676;
+}
+
+.policy-alert.warning {
+    background: rgba(255, 179, 0, 0.08);
+    border-color: #FFB300;
+}
+
+.policy-alert.danger {
+    background: rgba(239, 68, 68, 0.08);
+    border-color: #ef4444;
+}
+
+/* Contact Cards */
+.policy-contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.policy-contact-box {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #e2e8f0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.policy-contact-box:hover {
+    border-color: var(--primary);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.policy-contact-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: rgba(0, 243, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.policy-contact-info small {
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin-bottom: 2px;
+}
+
+.policy-contact-info span {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #fff;
+    word-break: break-all;
+}
+
+/* Language Tab Content Visibility */
+.lang-content-ar,
+.lang-content-en {
+    display: none;
+}
+
+.lang-content-ar.active,
+.lang-content-en.active {
+    display: block;
+    animation: fadeInPolicy 0.4s ease-out;
+}
+
+@keyframes fadeInPolicy {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RTL Typography enhancement */
+body[dir="rtl"] {
+    font-family: 'Cairo', 'Inter', sans-serif;
+}
+
+body[dir="rtl"] .policy-title {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 800;
+}
+
+body[dir="rtl"] .policy-card-title {
+    font-family: 'Cairo', sans-serif;
+}
+
+body[dir="rtl"] .policy-back-btn i {
+    transform: rotate(180deg);
+}
+
+/* Footer */
+.policy-footer {
+    text-align: center;
+    padding: 35px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.policy-footer a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.policy-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .policy-nav {
+        padding: 14px 5%;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    .policy-title {
+        font-size: 1.7rem;
+    }
+    .policy-card {
+        padding: 22px 18px;
+    }
+    .policy-hero {
+        padding: 30px 15px;
+    }
+    .policy-app-icon-card {
+        padding: 8px;
+        border-radius: 26px;
+        margin-bottom: 18px;
+    }
+    .policy-app-icon {
+        width: 105px;
+        height: 105px;
+        border-radius: 20px;
+    }
+}

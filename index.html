@@ -15,9 +15,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="SEIF HOSSAM (Seif Khoz3a) - Full Stack Developer & Software Engineer in Egypt. React, Java, C++, scalable architectures. سيف حسام مبرمج ومطور مواقع.">
+        content="SEIF HOSSAM (Seif Khoz3a) - Full Stack Developer & Software Engineer in Egypt. React, React Native, Java, C++, scalable architectures. سيف حسام مبرمج ومطور مواقع وتطبيقات.">
     <meta name="keywords"
-        content="SEIF HOSSAM, Seif Khoz3a, Full Stack Developer, Software Engineer, Web Developer, React Developer, Java Developer, C++ Developer, SEIF HOSSAM Portfolio, Web Development Egypt, سيف حسام, سيف مبرمج, سيف مهندس برمجيات, سيف مطور ويب, تصميم مواقع مصر">
+        content="SEIF HOSSAM, Seif Khoz3a, Full Stack Developer, Software Engineer, Web Developer, React Developer, React Native Developer, Java Developer, C++ Developer, SEIF HOSSAM Portfolio, Web Development Egypt, سيف حسام, سيف مبرمج, سيف مهندس برمجيات, سيف مطور ويب, تصميم مواقع مصر">
     <meta name="author" content="SEIF HOSSAM">
     <meta name="robots" content="index, follow">
 
@@ -58,7 +58,7 @@
         "@type": "Organization",
         "name": "Freelance"
       },  
-      "knowsAbout": ["React.js", "Java", "C++", "Full-Stack Development", "System Analysis", "SEO", "Software Engineering"]
+      "knowsAbout": ["React.js", "React Native", "Java", "C++", "Full-Stack Development", "System Analysis", "SEO", "Software Engineering"]
     }
     </script>
     <script type="application/ld+json">
@@ -99,7 +99,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@400;500;700;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&family=Orbitron:wght@400;500;700;900&display=swap"
         rel="stylesheet">
 
     <!-- Icons -->
@@ -273,8 +273,45 @@
     <section class="section" id="projects">
         <h2 class="section-title fade-up">Featured <span>Software Projects</span></h2>
         <div class="projects-grid">
+            <!-- Project: VOLT FIT -->
+            <div class="project-card voltfit-card slide-in-left delay-100" data-project="voltfit">
+                <div class="voltfit-video-container">
+                    <video class="voltfit-video-bg" autoplay muted playsinline preload="auto">
+                        <source src="assets/vid/splash_video.mp4" type="video/mp4">
+                    </video>
+                    <div class="voltfit-video-overlay"></div>
+                </div>
+                <div class="project-header voltfit-header">
+                    <div class="voltfit-icon-card">
+                        <img src="assets/images/voltfit-icon.png"
+                            alt="VOLT FIT App Logo - Fitness & Coaching Platform by SEIF HOSSAM" class="voltfit-logo">
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/seif-cyber/" target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository"><i
+                                class="fa-brands fa-github"></i></a>
+                        <a href="#" aria-label="Mobile Application"><i
+                                class="fa-solid fa-mobile-screen-button"></i></a>
+                    </div>
+                </div>
+                <div class="project-title">VOLT FIT - Fitness & Coaching App</div>
+                <p class="project-description">
+                    A high-performance, offline-first cross-platform fitness app built with React Native (Expo) & Zustand. Features 24 screens, real-time Firebase sync, workout tracking with PR detection, 3-color circular macro nutrition tracker, 1RM calculator, and coach management with encrypted chat.
+                </p>
+                <div class="project-card-actions">
+                    <a href="https://github.com/seif-cyber/" target="_blank" rel="noopener noreferrer" class="btn btn-sm">Open Project</a>
+                    <a href="privacy-policy.html?lang=en" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline privacy-btn"><i class="fa-solid fa-shield-halved"></i> <span>Privacy Policy</span></a>
+                </div>
+                <div class="tech-tags">
+                    <span class="tag">React Native</span>
+                    <span class="tag">Expo</span>
+                    <span class="tag">Zustand</span>
+                    <span class="tag">Firebase</span>
+                    <span class="tag">Offline-First</span>
+                </div>
+            </div>
+
             <!-- Project 1 -->
-            <div class="project-card slide-in-left delay-100">
+            <div class="project-card zoom-in delay-200" data-project="project1">
                 <div class="project-header">
                     <i class="fa-regular fa-folder folder-icon"></i>
                     <div class="project-links">
@@ -297,11 +334,11 @@
             </div>
 
             <!-- Project 2 -->
-            <div class="project-card zoom-in delay-300">
+            <div class="project-card zoom-in delay-300" data-project="project2">
                 <div class="project-header">
                     <img src="https://farida-eg.com/pics/logo.png"
                         alt="Farida Marketing Agency Logo - Web Development Project by SEIF HOSSAM" class="farida-logo"
-                        style="width: 45px; height: auto;">
+                        style="width: 85px; height: auto;">
                     <div class="project-links">
                         <a href="https://farida-eg.com/" target="_blank" rel="noopener noreferrer"
                             aria-label="Live Site"><i class="fa-solid fa-external-link-alt"></i></a>
@@ -322,7 +359,7 @@
             </div>
 
             <!-- Project 3 -->
-            <div class="project-card slide-in-right delay-200">
+            <div class="project-card slide-in-right delay-200" data-project="project3">
                 <div class="project-header">
                     <i class="fa-regular fa-folder folder-icon"></i>
                     <div class="project-links">

@@ -73,3 +73,38 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--secondary);
 }
+
+/* RTL Typography enhancement */
+body[dir="rtl"] {
+    font-family: var(--font-ar), var(--font-body);
+}
+
+body[dir="rtl"] *:not(i):not([class*="fa-"]) {
+    font-family: inherit;
+}
+
+body[dir="rtl"] h1,
+body[dir="rtl"] h2,
+body[dir="rtl"] h3,
+body[dir="rtl"] h4,
+body[dir="rtl"] h5,
+body[dir="rtl"] h6,
+body[dir="rtl"] .logo,
+body[dir="rtl"] .project-title,
+body[dir="rtl"] .btn {
+    font-family: var(--font-ar), var(--font-en);
+    letter-spacing: normal;
+}
+
+/* Guard Font Awesome Icons from font inheritance in RTL */
+body[dir="rtl"] i,
+body[dir="rtl"] [class*="fa-"],
+body[dir="rtl"] .fa-solid,
+body[dir="rtl"] .fa-regular {
+    font-family: "Font Awesome 6 Free" !important;
+}
+
+body[dir="rtl"] .fa-brands,
+body[dir="rtl"] .fab {
+    font-family: "Font Awesome 6 Brands" !important;
+}

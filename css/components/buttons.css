@@ -33,7 +33,9 @@
     width: 100%;
 }
 
-.btn:hover {
+.btn:hover,
+.btn:hover i,
+.btn:hover span {
     color: black;
     box-shadow: 0 0 20px var(--primary);
     transform: translateY(-3px);
@@ -49,18 +51,22 @@
 .btn-outline {
     background-color: transparent;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    margin-left: 15px;
     color: white;
 }
 
-.btn-outline:hover {
+.btn-outline:hover,
+.btn-outline:hover i,
+.btn-outline:hover span {
     border-color: var(--primary);
-    color: var(--primary);
-    box-shadow: 0 0 15px rgba(0, 255, 249, 0.3);
+    color: black;
+    box-shadow: 0 0 20px var(--primary);
 }
 
 .cta-buttons {
     display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 @media (max-width: 768px) {
