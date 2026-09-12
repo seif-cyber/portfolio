@@ -424,12 +424,16 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.fade-up, .zoom-in, .slide-in-left, .slide-in-right, .fade-in').forEach(el => observer.observe(el));
 
     /* =========================================
-       10. VOLT FIT Video Autoplay (Plays 2 times, then freezes on last frame)
+       10. VOLT FIT Video Scroll-Triggered Autoplay
+           (Starts ONLY on scroll, plays 2 times, then freezes on last frame)
        ========================================= */
+    const voltfitCard = document.querySelector('.voltfit-card');
     const voltfitVideo = document.querySelector('.voltfit-video-bg');
-    if (voltfitVideo) {
+
+    if (voltfitCard && voltfitVideo) {
         let playCount = 0;
         const maxPlays = 2;
+        let hasStarted = false;
 
         const startVideo = () => {
             if (playCount < maxPlays) {
@@ -451,11 +455,24 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        startVideo();
-        window.addEventListener('load', startVideo, { once: true });
-        document.addEventListener('click', startVideo, { once: true });
-        document.addEventListener('touchstart', startVideo, { once: true });
-        document.addEventListener('scroll', startVideo, { once: true });
+        // Trigger ONLY when the user scrolls down to the VOLT FIT card
+        if ('IntersectionObserver' in window) {
+            const videoObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !hasStarted) {
+                        hasStarted = true;
+                        startVideo();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.25 // Starts when 25% of the card is visible in the viewport
+            });
+
+            videoObserver.observe(voltfitCard);
+        } else {
+            startVideo();
+        }
     }
 });
 
