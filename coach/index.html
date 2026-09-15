@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VOLT FIT - انضم إلى فريقي التدريبي</title>
+
+  <!-- Open Graph / WhatsApp / Facebook / Telegram Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="VOLT FIT">
+  <meta property="og:title" content="⚡ انضم إلى فريقي التدريبي على VOLT FIT">
+  <meta property="og:description" content="اضغط هنا للدخول المباشر إلى التطبيق وبدء خطتك التدريبية والغذائية تحت إشرافي ومتابعتي!">
+  <meta property="og:image" content="https://seifhossam.com/coach/preview.png">
+  <meta property="og:image:secure_url" content="https://seifhossam.com/coach/preview.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="1024">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="⚡ انضم إلى فريقي التدريبي على VOLT FIT">
+  <meta name="twitter:description" content="اضغط هنا للدخول المباشر إلى التطبيق وبدء خطتك التدريبية والغذائية!">
+  <meta name="twitter:image" content="https://seifhossam.com/coach/preview.png">
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#00E676">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    body {
+      background-color: #040910;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+      text-align: center;
+    }
+    .card {
+      background: #0d150e;
+      border: 1px solid #1c2b1e;
+      border-radius: 24px;
+      padding: 36px 24px;
+      max-width: 440px;
+      width: 100%;
+      box-shadow: 0 16px 48px rgba(0, 230, 118, 0.08);
+    }
+    .logo {
+      width: 96px;
+      height: 96px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 24px rgba(0, 230, 118, 0.25);
+      border: 2px solid #00E676;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(0, 230, 118, 0.15);
+      color: #00E676;
+      border: 1px solid rgba(0, 230, 118, 0.3);
+      padding: 6px 14px;
+      border-radius: 99px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 18px;
+    }
+    p {
+      color: #8c9c8e;
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .code-box {
+      background: #060a07;
+      border: 1.5px dashed #00E676;
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .code-text {
+      font-family: monospace;
+      font-size: 18px;
+      font-weight: 800;
+      color: #00E676;
+      letter-spacing: 1px;
+    }
+    .btn-copy {
+      background: #1c2b1e;
+      color: #ffffff;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+    .btn-copy:hover {
+      background: #00E676;
+      color: #000;
+    }
+    .btn-primary {
+      display: block;
+      width: 100%;
+      background: #00E676;
+      color: #040910;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 16px;
+      padding: 16px;
+      border-radius: 14px;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 16px rgba(0, 230, 118, 0.3);
+      transition: transform 0.15s ease;
+    }
+    .btn-primary:active {
+      transform: scale(0.98);
+    }
+    .hint {
+      font-size: 12px;
+      color: #5d6e60;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <img src="preview.png" alt="VOLT FIT" class="logo">
+    <div class="badge">دعوة انضمام للتدريب</div>
+    <h1>VOLT FIT COACHING</h1>
+    <p>يدعوك مدربك للانضمام إلى فريقه التدريبي لبدء المتابعة وتلقي الجداول الرياضية والغذائية المخصصة لك.</p>
+
+    <div class="code-box">
+      <span class="code-text" id="coachCode">KHZ-COACH</span>
+      <button class="btn-copy" onclick="copyCode()">نسخ الكود</button>
+    </div>
+
+    <a href="javascript:openApp()" class="btn-primary" id="openBtn">
+      🚀 فتح في تطبيق VOLT FIT
+    </a>
+
+    <div class="hint">سيتم تحويلك إلى التطبيق تلقائياً خلال لحظات...</div>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    let code = urlParams.get('code') || '';
+    if (!code) {
+      const match = window.location.pathname.match(/coach\/([A-Za-z0-9-_]+)/i);
+      if (match) code = match[1];
+    }
+    code = (code || '').trim().toUpperCase() || 'VOLTFIT';
+
+    document.getElementById('coachCode').innerText = code;
+
+    const deepLink = "voltfit://coach?code=" + encodeURIComponent(code);
+    document.getElementById('openBtn').href = deepLink;
+
+    function openApp() {
+      window.location.href = deepLink;
+    }
+
+    function copyCode() {
+      navigator.clipboard.writeText(code).then(() => {
+        const btn = document.querySelector('.btn-copy');
+        btn.innerText = 'تم النسخ! ✓';
+        btn.style.background = '#00E676';
+        btn.style.color = '#000';
+        setTimeout(() => {
+          btn.innerText = 'نسخ الكود';
+          btn.style.background = '#1c2b1e';
+          btn.style.color = '#fff';
+        }, 2000);
+      });
+    }
+
+    if (/android|iphone|ipad|ipod/i.test(navigator.userAgent)) {
+      setTimeout(() => {
+        window.location.href = deepLink;
+      }, 300);
+    }
+  </script>
+</body>
+</html>
