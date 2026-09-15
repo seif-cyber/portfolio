@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VOLT FIT - انضم إلى فريقي التدريبي</title>
+  <title>VOLT FIT - Join My Training Team</title>
 
   <!-- Open Graph / WhatsApp / Facebook / Telegram Meta Tags -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="VOLT FIT">
-  <meta property="og:title" content="⚡ انضم إلى فريقي التدريبي على VOLT FIT">
-  <meta property="og:description" content="اضغط هنا للدخول المباشر إلى التطبيق وبدء خطتك التدريبية والغذائية تحت إشرافي ومتابعتي!">
+  <meta property="og:title" content="⚡ Join My Training Team on VOLT FIT">
+  <meta property="og:description" content="Click here for direct access to the app and start your training and nutrition plan under my supervision!">
   <meta property="og:image" content="https://seifhossam.com/coach/preview.png">
   <meta property="og:image:secure_url" content="https://seifhossam.com/coach/preview.png">
   <meta property="og:image:type" content="image/png">
@@ -18,8 +18,8 @@
 
   <!-- Twitter Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="⚡ انضم إلى فريقي التدريبي على VOLT FIT">
-  <meta name="twitter:description" content="اضغط هنا للدخول المباشر إلى التطبيق وبدء خطتك التدريبية والغذائية!">
+  <meta name="twitter:title" content="⚡ Join My Training Team on VOLT FIT">
+  <meta name="twitter:description" content="Click here for direct access to the app and start your training and nutrition plan!">
   <meta name="twitter:image" content="https://seifhossam.com/coach/preview.png">
 
   <!-- Theme Color -->
@@ -143,20 +143,20 @@
 
   <div class="card">
     <img src="preview.png" alt="VOLT FIT" class="logo">
-    <div class="badge">دعوة انضمام للتدريب</div>
+    <div class="badge">Training Invitation</div>
     <h1>VOLT FIT COACHING</h1>
-    <p>يدعوك مدربك للانضمام إلى فريقه التدريبي لبدء المتابعة وتلقي الجداول الرياضية والغذائية المخصصة لك.</p>
+    <p>Your coach invites you to join their training team to start your journey and receive your personalized workout and nutrition plans.</p>
 
     <div class="code-box">
       <span class="code-text" id="coachCode">KHZ-COACH</span>
-      <button class="btn-copy" onclick="copyCode()">نسخ الكود</button>
+      <button class="btn-copy" onclick="copyCode()">Copy Code</button>
     </div>
 
     <a href="javascript:openApp()" class="btn-primary" id="openBtn">
-      🚀 فتح في تطبيق VOLT FIT
+      🚀 Open in VOLT FIT App
     </a>
 
-    <div class="hint">سيتم تحويلك إلى التطبيق تلقائياً خلال لحظات...</div>
+    <div class="hint">You will be redirected to the app automatically in a moment...</div>
   </div>
 
   <script>
@@ -180,11 +180,11 @@
     function copyCode() {
       navigator.clipboard.writeText(code).then(() => {
         const btn = document.querySelector('.btn-copy');
-        btn.innerText = 'تم النسخ! ✓';
+        btn.innerText = 'Copied! ✓';
         btn.style.background = '#00E676';
         btn.style.color = '#000';
         setTimeout(() => {
-          btn.innerText = 'نسخ الكود';
+          btn.innerText = 'Copy Code';
           btn.style.background = '#1c2b1e';
           btn.style.color = '#fff';
         }, 2000);
