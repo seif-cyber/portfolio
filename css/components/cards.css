@@ -287,7 +287,8 @@
     margin-left: 0;
 }
 
-.privacy-btn {
+.privacy-btn,
+.video-btn {
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -296,7 +297,10 @@
 
 .privacy-btn:hover,
 .privacy-btn:hover i,
-.privacy-btn:hover span {
+.privacy-btn:hover span,
+.video-btn:hover,
+.video-btn:hover i,
+.video-btn:hover span {
     border-color: var(--primary);
     color: black;
     box-shadow: 0 0 20px var(--primary);

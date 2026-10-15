@@ -149,6 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
             sayHello: "Say Hello",
             openProject: "Open Project",
             downloadApp: "Download App",
+            watchVideo: "Watch on TikTok",
             privacyPolicy: "Privacy Policy",
             rights: "© 2026 SEIF HOSSAM. All rights reserved.",
             voltfitTitle: "VOLT FIT - Fitness & Coaching App",
@@ -204,6 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
             sayHello: "أرسل رسالة",
             openProject: "عرض المشروع",
             downloadApp: "حمّل التطبيق",
+            watchVideo: "شاهد على تيك توك",
             privacyPolicy: "سياسة الخصوصية",
             rights: "© 2026 سيف حسام. جميع الحقوق محفوظة.",
             voltfitTitle: "تطبيق VOLT FIT الرياضي المتكامل",
@@ -302,7 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (pKey && t[`${pKey}Title`]) {
                     const titleEl = card.querySelector('.project-title');
                     const descEl = card.querySelector('.project-description');
-                    const btnEl = card.querySelector('.btn-sm:not(.privacy-btn):not(.download-btn)');
+                    const btnEl = card.querySelector('.btn-sm:not(.privacy-btn):not(.download-btn):not(.video-btn)');
                     const downloadSpan = card.querySelector('.download-btn span');
                     const privacyBtn = card.querySelector('.privacy-btn');
                     const privacySpan = card.querySelector('.privacy-btn span');
@@ -310,6 +312,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (descEl) descEl.textContent = t[`${pKey}Desc`];
                     if (btnEl) btnEl.textContent = t.openProject;
                     if (downloadSpan) downloadSpan.textContent = t.downloadApp;
+                    const videoSpan = card.querySelector('.video-btn span');
+                    if (videoSpan) videoSpan.textContent = t.watchVideo;
                     if (privacySpan && t.privacyPolicy) privacySpan.textContent = t.privacyPolicy;
                     if (privacyBtn) privacyBtn.setAttribute('href', `privacy-policy.html?lang=${currentLang}`);
                 }
