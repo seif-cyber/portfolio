@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* =========================================
        2. Particles.js Config
        ========================================= */
-    if (document.getElementById('particles-js')) {
+    if (document.getElementById('particles-js') && typeof particlesJS !== 'undefined') {
         particlesJS('particles-js', {
             "particles": {
                 "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
@@ -90,9 +90,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let typed;
     function initTyped(strings) {
         if (typed) typed.destroy();
-        const typingElement = document.querySelector('.hero-text h3');
-        if (typingElement) {
-            typed = new Typed('.hero-text h3', {
+        const typingElement = document.querySelector('.hero-text .typed-text');
+        if (typingElement && typeof Typed !== 'undefined') {
+            typed = new Typed(typingElement, {
                 strings: strings,
                 typeSpeed: 50,
                 backSpeed: 30,
@@ -108,13 +108,16 @@ document.addEventListener('DOMContentLoaded', () => {
     /* =========================================
        4. Vanilla Tilt Config
        ========================================= */
-    VanillaTilt.init(document.querySelectorAll(".project-card"), {
-        max: 15,
-        speed: 400,
-        glare: true,
-        "max-glare": 0.2,
-        scale: 1.02
-    });
+    // Tilt is a hover effect; skip it on touch screens where it only gets in the way of scrolling
+    if (typeof VanillaTilt !== 'undefined' && window.matchMedia('(hover: hover)').matches) {
+        VanillaTilt.init(document.querySelectorAll(".project-card"), {
+            max: 15,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.2,
+            scale: 1.02
+        });
+    }
 
     /* =========================================
        5. Language Toggle Logic
@@ -131,30 +134,31 @@ document.addEventListener('DOMContentLoaded', () => {
             contact: "Contact",
             role: "Full-Stack Developer",
             roles: ['Full-Stack Developer', 'Software Engineer', 'Creative Coder'],
-            greeting: "Hi, I'm Seif Hossam",
-            desc: "A driven Computer Science Student and Junior Developer skilled in React, Java, and C++. Building scalable modern web applications.",
+            greeting: "Hi, I'm SEIF HOSSAM",
+            desc: "A driven <strong>Computer Science Student</strong> and <strong>Software Engineer</strong> skilled in React, Java, and C++. I specialize in building scalable, production-ready applications with clean code and modern architecture.",
             cv: "Download CV",
             work: "See My Work",
             more: "More About Me",
-            featuredProjects: "Featured <span>Projects</span>",
-            technicalSkills: "Technical <span>Skills</span>",
+            featuredProjects: "Featured <span>Software Projects</span>",
+            technicalSkills: "Technical <span>Skills & Technologies</span>",
             frontendTab: "Frontend Development",
             backendTab: "Backend Development",
-            softSkillsTitle: "Soft <span>Skills</span>",
+            softSkillsTitle: "Professional <span>Soft Skills</span>",
             getInTouch: "Get In Touch",
             footerDesc: "Currently looking for new opportunities. My inbox is always open.",
             sayHello: "Say Hello",
             openProject: "Open Project",
+            downloadApp: "Download App",
             privacyPolicy: "Privacy Policy",
-            rights: "© 2026 Seif Hossam. All rights reserved.",
+            rights: "© 2026 SEIF HOSSAM. All rights reserved.",
             voltfitTitle: "VOLT FIT - Fitness & Coaching App",
             voltfitDesc: "A high-performance, offline-first cross-platform fitness app built with React Native (Expo) & Zustand. Features 24 screens, real-time Firebase sync, workout tracking with PR detection, 3-color circular macro nutrition tracker, 1RM calculator, and coach management with encrypted chat.",
             project1Title: "E-Commerce Dashboard",
-            project1Desc: "A comprehensive seller dashboard built with React.js. Features real-time data visualization and sales reporting.",
+            project1Desc: "A comprehensive seller dashboard built with React.js. Features real-time data visualization, inventory management state, and responsive sales reporting charts.",
             project2Title: "Farida Marketing Agency",
-            project2Desc: "A premium advertising platform with high-impact cinematic design showcasing strategic branding services.",
+            project2Desc: "A premium, full-service advertising and marketing platform. Features a high-impact, dark-themed cinematic design showcasing strategic branding and digital marketing services.",
             project3Title: "Study To-Do List",
-            project3Desc: "A productivity application designed to help organize study schedules with persistent task storage.",
+            project3Desc: "A productivity application designed to help organize study schedules. Features persistent task storage and a focused, distraction-free interface.",
             sk1: "Problem Solving",
             sk1Desc: ["Ability to debug code and find effective solutions", "Tackling programming challenges in real projects"],
             sk2: "Analytical Thinking",
@@ -199,6 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
             footerDesc: "أبحث حالياً عن فرص جديدة. بريدي الإلكتروني متاح دائماً.",
             sayHello: "أرسل رسالة",
             openProject: "عرض المشروع",
+            downloadApp: "حمّل التطبيق",
             privacyPolicy: "سياسة الخصوصية",
             rights: "© 2026 سيف حسام. جميع الحقوق محفوظة.",
             voltfitTitle: "تطبيق VOLT FIT الرياضي المتكامل",
@@ -259,9 +264,12 @@ document.addEventListener('DOMContentLoaded', () => {
             initTyped(t.roles);
 
             const heroH1 = document.querySelector('.hero-text h1');
-            if (heroH1) heroH1.childNodes[0].nodeValue = t.greeting;
+            if (heroH1) {
+                heroH1.textContent = t.greeting;
+                heroH1.setAttribute('data-text', t.greeting);
+            }
             const heroP = document.querySelector('.hero-text p');
-            if (heroP) heroP.textContent = t.desc;
+            if (heroP) heroP.innerHTML = t.desc;
 
             // Hero Buttons
             const heroBtns = document.querySelectorAll('.cta-buttons .btn');
@@ -294,12 +302,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (pKey && t[`${pKey}Title`]) {
                     const titleEl = card.querySelector('.project-title');
                     const descEl = card.querySelector('.project-description');
-                    const btnEl = card.querySelector('.btn-sm:not(.privacy-btn)');
+                    const btnEl = card.querySelector('.btn-sm:not(.privacy-btn):not(.download-btn)');
+                    const downloadSpan = card.querySelector('.download-btn span');
                     const privacyBtn = card.querySelector('.privacy-btn');
                     const privacySpan = card.querySelector('.privacy-btn span');
                     if (titleEl) titleEl.textContent = t[`${pKey}Title`];
                     if (descEl) descEl.textContent = t[`${pKey}Desc`];
                     if (btnEl) btnEl.textContent = t.openProject;
+                    if (downloadSpan) downloadSpan.textContent = t.downloadApp;
                     if (privacySpan && t.privacyPolicy) privacySpan.textContent = t.privacyPolicy;
                     if (privacyBtn) privacyBtn.setAttribute('href', `privacy-policy.html?lang=${currentLang}`);
                 }
@@ -358,15 +368,11 @@ document.addEventListener('DOMContentLoaded', () => {
        ========================================= */
     const scrollTopBtn = document.getElementById('scroll-top');
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 500) {
-            scrollTopBtn.classList.add('visible');
-        } else {
-            scrollTopBtn.classList.remove('visible');
-        }
-    });
-
     if (scrollTopBtn) {
+        window.addEventListener('scroll', () => {
+            scrollTopBtn.classList.toggle('visible', window.scrollY > 500);
+        }, { passive: true });
+
         scrollTopBtn.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
@@ -385,6 +391,14 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             hamburger.classList.toggle('active');
+        });
+
+        // Close the mobile menu after picking a section
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
         });
     }
 

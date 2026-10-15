@@ -13,6 +13,7 @@
     --nav-bg: rgba(15, 23, 42, 0.8);
     --nav-border: rgba(0, 243, 255, 0.2);
     /* Cyan border */
+    --glass-border: rgba(255, 255, 255, 0.1);
     --font-en: 'Orbitron', sans-serif;
     --font-ar: 'Cairo', sans-serif;
     --font-body: 'Inter', sans-serif;

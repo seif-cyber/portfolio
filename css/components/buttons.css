@@ -48,6 +48,22 @@
     width: fit-content;
 }
 
+/* Filled call-to-action (Google Play download) */
+.download-btn {
+    gap: 8px;
+    background-color: var(--primary);
+    color: #000;
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.35);
+}
+
+.download-btn::before {
+    background: #fff;
+}
+
+.download-btn i {
+    font-size: 1.05em;
+}
+
 .btn-outline {
     background-color: transparent;
     border: 1px solid rgba(255, 255, 255, 0.3);

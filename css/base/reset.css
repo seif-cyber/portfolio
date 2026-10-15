@@ -54,6 +54,23 @@ body {
     transition: all 0.1s ease;
 }
 
+/* Touch screens have no pointer to follow: hide the custom cursor */
+@media (hover: none) {
+    body {
+        cursor: auto;
+    }
+
+    #cursor,
+    #cursor-blur {
+        display: none;
+    }
+}
+
+/* Off-screen slide-in animations must not widen the page on phones */
+.section {
+    overflow-x: clip;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 10px;
