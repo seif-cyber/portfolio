@@ -6,12 +6,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const cursor = document.getElementById('cursor');
     const cursorBlur = document.getElementById('cursor-blur');
 
+    // Batch pointer updates to one write per frame
+    let pointer = null;
     const moveCursor = (x, y) => {
-        cursor.style.left = x + 'px';
-        cursor.style.top = y + 'px';
-
-        cursorBlur.style.left = x + 'px';
-        cursorBlur.style.top = y + 'px';
+        const pending = pointer;
+        pointer = { x, y };
+        if (pending) return;
+        requestAnimationFrame(() => {
+            for (const el of [cursor, cursorBlur]) {
+                el.style.setProperty('--x', pointer.x + 'px');
+                el.style.setProperty('--y', pointer.y + 'px');
+            }
+            pointer = null;
+        });
     };
 
     document.addEventListener('mousemove', (e) => moveCursor(e.clientX, e.clientY));
@@ -30,12 +37,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const hoverElements = document.querySelectorAll('a, button, .project-card, .skill-category-card');
     hoverElements.forEach(el => {
         el.addEventListener('mouseenter', () => {
-            cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+            cursor.style.setProperty('--s', 1.5);
             cursor.style.background = 'rgba(0, 255, 249, 0.1)';
             cursorBlur.style.opacity = '0.3';
         });
         el.addEventListener('mouseleave', () => {
-            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+            cursor.style.setProperty('--s', 1);
             cursor.style.background = 'transparent';
             cursorBlur.style.opacity = '0.15';
         });
@@ -92,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "push": { "particles_nb": 4 }
                 }
             },
-            "retina_detect": true
+            "retina_detect": !window.matchMedia('(hover: none)').matches
         });
     }
 

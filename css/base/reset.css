@@ -33,25 +33,32 @@ body {
     border: 1px solid var(--primary);
     border-radius: 50%;
     position: fixed;
+    left: 0;
+    top: 0;
     pointer-events: none;
     z-index: 9999;
-    transform: translate(-50%, -50%);
+    /* Moved with transform (set from js/main.js) so following the mouse never triggers layout */
+    transform: translate3d(var(--x, -100px), var(--y, -100px), 0) translate(-50%, -50%) scale(var(--s, 1));
+    will-change: transform;
     transition: width 0.3s, height 0.3s, background 0.3s;
     mix-blend-mode: difference;
 }
 
 #cursor-blur {
-    width: 300px;
-    height: 300px;
-    background: var(--primary);
+    /* A soft radial gradient looks like the old blur(80px) disc without re-blurring on every move */
+    width: 580px;
+    height: 580px;
+    background: radial-gradient(circle closest-side, rgba(0, 243, 255, 0.82) 0%, rgba(0, 243, 255, 0.62) 30%, rgba(0, 243, 255, 0.25) 60%, rgba(0, 243, 255, 0.06) 82%, rgba(0, 243, 255, 0) 100%);
     opacity: 0.15;
-    filter: blur(80px);
     border-radius: 50%;
     position: fixed;
+    left: 0;
+    top: 0;
     pointer-events: none;
     z-index: -1;
-    transform: translate(-50%, -50%);
-    transition: all 0.1s ease;
+    transform: translate3d(var(--x, -1000px), var(--y, -1000px), 0) translate(-50%, -50%);
+    will-change: transform;
+    transition: transform 0.1s ease, opacity 0.1s ease;
 }
 
 /* The custom circle replaces the system cursor everywhere, including buttons and links */
@@ -74,6 +81,11 @@ body {
 
     body.touch-active #cursor-blur {
         opacity: 0.15;
+    }
+
+    /* Blurring the animated particles behind each card every frame is too heavy for phones */
+    body .project-card {
+        backdrop-filter: none;
     }
 }
 
