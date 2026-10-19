@@ -1,0 +1,95 @@
+/* --- Experience & Approach --- */
+#about {
+    padding-top: 40px;
+}
+
+.experience-layout {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.timeline {
+    border-left: 2px solid var(--primary);
+    padding-left: 30px;
+}
+
+body[dir="rtl"] .timeline {
+    border-left: none;
+    border-right: 2px solid var(--primary);
+    padding-left: 0;
+    padding-right: 30px;
+}
+
+.timeline-item {
+    position: relative;
+    background-color: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 30px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 34px;
+    left: -39px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--primary);
+    box-shadow: 0 0 12px var(--primary);
+}
+
+body[dir="rtl"] .timeline-item::before {
+    left: auto;
+    right: -39px;
+}
+
+.timeline-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.timeline-date {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.timeline-company {
+    color: var(--text-muted);
+}
+
+.timeline-company::before {
+    content: '·';
+    margin-inline-end: 10px;
+}
+
+.timeline-role {
+    font-size: 1.3rem;
+    margin-bottom: 18px;
+}
+
+.principles {
+    display: grid;
+    gap: 20px;
+}
+
+.principle-text {
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+#services .skills-grid-detailed {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+@media (max-width: 900px) {
+    .experience-layout {
+        grid-template-columns: 1fr;
+    }
+}

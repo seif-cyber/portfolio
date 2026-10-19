@@ -54,15 +54,26 @@ body {
     transition: all 0.1s ease;
 }
 
-/* Touch screens have no pointer to follow: hide the custom cursor */
-@media (hover: none) {
-    body {
-        cursor: auto;
+/* The custom circle replaces the system cursor everywhere, including buttons and links */
+@media (hover: hover) {
+    body * {
+        cursor: none !important;
     }
+}
 
+/* Touch screens: the circle follows the finger, hidden until the first touch */
+@media (hover: none) {
     #cursor,
     #cursor-blur {
-        display: none;
+        opacity: 0;
+    }
+
+    body.touch-active #cursor {
+        opacity: 1;
+    }
+
+    body.touch-active #cursor-blur {
+        opacity: 0.15;
     }
 }
 
@@ -89,6 +100,47 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--secondary);
+}
+
+/* With a mouse, the page scrollbar is drawn in the page (js/main.js) so the
+   custom cursor stays visible over it; the browser's own one is hidden */
+.page-scrollbar {
+    display: none;
+}
+
+@media (hover: hover) {
+    html {
+        scrollbar-width: none;
+    }
+
+    html::-webkit-scrollbar {
+        display: none;
+    }
+
+    .page-scrollbar {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 10px;
+        height: 100vh;
+        background: var(--bg-color);
+        z-index: 9998;
+    }
+
+    .page-scrollbar-thumb {
+        position: absolute;
+        left: 2px;
+        right: 2px;
+        min-height: 40px;
+        background: var(--primary);
+        border-radius: 5px;
+    }
+
+    .page-scrollbar-thumb:hover,
+    .page-scrollbar.dragging .page-scrollbar-thumb {
+        background: var(--secondary);
+    }
 }
 
 /* RTL Typography enhancement */

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4P0SPSK3F"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-Z4P0SPSK3F');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOLT FIT Case Study | SEIF HOSSAM</title>
+    <meta name="description"
+        content="How SEIF HOSSAM designed and built VOLT FIT: an offline-first fitness, nutrition and coaching app with local-first sync, REST-based chat within Firebase's free tier, and a native Android rest timer.">
+    <meta name="author" content="SEIF HOSSAM">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://seifhossam.com/voltfit/">
+
+    <meta property="og:site_name" content="SEIF HOSSAM">
+    <meta property="og:title" content="VOLT FIT Case Study | SEIF HOSSAM">
+    <meta property="og:description"
+        content="Training, nutrition and coaching in one app: architecture, engineering decisions and screens.">
+    <meta property="og:image" content="https://seifhossam.com/assets/images/voltfit/en-1.jpg">
+    <meta property="og:url" content="https://seifhossam.com/voltfit/">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@hosam_sif">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon_io/favicon-16x16.png">
+    <link rel="shortcut icon" href="../assets/favicon_io/favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&family=Orbitron:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+
+    <noscript>
+        <style>
+            .fade-up,
+            .zoom-in,
+            .slide-in-left,
+            .slide-in-right,
+            .fade-in {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        </style>
+    </noscript>
+</head>
+
+<body>
+    <div id="particles-js"></div>
+    <div id="cursor"></div>
+    <div id="cursor-blur"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="../" class="logo" data-i18n="logo" style="text-decoration: none; color: inherit;">SEIF <span style="color: var(--primary);">HOSSAM</span></a>
+        <ul class="nav-links">
+            <li><a href="../#home" data-i18n="navHome">Home</a></li>
+            <li><a href="../#about" data-i18n="navAbout">About</a></li>
+            <li><a href="../#skills" data-i18n="navSkills">Skills</a></li>
+            <li><a href="../#projects" data-i18n="navProjects">Projects</a></li>
+            <li><a href="../#services" data-i18n="navServices">Services</a></li>
+            <li><a href="#contact" data-i18n="navContact">Contact</a></li>
+        </ul>
+        <div class="nav-extra">
+            <button id="lang-toggle" class="lang-btn">AR</button>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="cs-hero">
+        <div class="fade-up">
+            <a href="../#projects" class="cs-back"><i class="fa-solid fa-arrow-left"></i> <span data-i18n="csBack">All projects</span></a>
+            <div class="cs-brand">
+                <img src="../assets/images/voltfit-icon.png" alt="VOLT FIT app icon">
+                <span class="cs-kicker" data-i18n="csKicker">Case Study · Mobile App</span>
+            </div>
+            <h1 data-i18n="csTitle">VOLT FIT — <span>training, nutrition and coaching</span> in one app</h1>
+            <p class="cs-lead" data-i18n="csLead">
+                Most fitness apps cover a single piece: workouts, or food, or a WhatsApp chat with your coach — and
+                almost none are built for Arabic-speaking users. I designed and built VOLT FIT end-to-end to bring
+                all of it into one place. It is live on Google Play.
+            </p>
+            <div class="cs-actions">
+                <a href="https://play.google.com/store/apps/details?id=com.volt.fit" target="_blank" rel="noopener noreferrer" class="btn"><i class="fa-brands fa-google-play"></i> <span data-i18n="downloadApp">Download App</span></a>
+                <a href="https://www.tiktok.com/@khoz3a/video/7696669309711453461" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><i class="fa-brands fa-tiktok"></i> <span data-i18n="watchVideo">Watch on TikTok</span></a>
+            </div>
+        </div>
+        <div class="cs-hero-shots zoom-in delay-200">
+            <img src="../assets/images/voltfit/en-1.jpg" data-src-ar="../assets/images/voltfit/ar-1.jpg" alt="VOLT FIT home dashboard" width="600" height="1300">
+            <img src="../assets/images/voltfit/en-3.jpg" data-src-ar="../assets/images/voltfit/ar-3.jpg" alt="VOLT FIT personal records and 1RM calculator" width="600" height="1300">
+        </div>
+    </header>
+
+    <!-- Quick facts -->
+    <div class="cs-facts fade-up">
+        <div class="cs-fact">
+            <span class="cs-fact-label" data-i18n="csRoleLabel">My role</span>
+            <span class="cs-fact-value" data-i18n="csRole">Sole engineer — product to release</span>
+        </div>
+        <div class="cs-fact">
+            <span class="cs-fact-label" data-i18n="csPlatformLabel">Platform</span>
+            <span class="cs-fact-value" data-i18n="csPlatform">Android · Google Play</span>
+        </div>
+        <div class="cs-fact">
+            <span class="cs-fact-label" data-i18n="csStackLabel">Stack</span>
+            <span class="cs-fact-value">React Native · Expo · Zustand · Firebase · Kotlin</span>
+        </div>
+        <div class="cs-fact">
+            <span class="cs-fact-label" data-i18n="csLangLabel">Languages</span>
+            <span class="cs-fact-value" data-i18n="csLang">English &amp; Arabic (full RTL)</span>
+        </div>
+    </div>
+
+    <!-- The problem -->
+    <section class="section">
+        <h2 class="section-title fade-up" data-i18n="csProblemTitle">The <span>Problem</span></h2>
+        <div class="cs-prose fade-up" data-i18n="csProblem">
+            <p>People who train seriously end up juggling several apps: one to log workouts, another to count
+                calories, and WhatsApp to talk to their coach. Nothing connects, and most of these apps treat Arabic
+                as an afterthought.</p>
+            <p><strong>VOLT FIT puts it all in one place:</strong> AI-generated training and diet plans, macro and
+                vitamin tracking backed by real USDA food data, a rest timer between sets, and a coach dashboard to
+                follow trainees and talk to them. It also ships features made specifically for the region — full
+                Arabic and RTL support, a <strong>Ramadan mode</strong> that moves meals to fasting hours, and
+                <strong>prayer-time awareness</strong> so reminders never land during prayer.</p>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section">
+        <h2 class="section-title fade-up" data-i18n="csFeaturesTitle">What It <span>Does</span></h2>
+        <div class="skills-grid-detailed">
+            <div class="skill-category-card zoom-in delay-100">
+                <h4><i class="fa-solid fa-robot"></i> <span data-i18n="ft1">AI Plans</span></h4>
+                <ul class="detailed-list" data-i18n="ft1List">
+                    <li>Personalized training &amp; diet plans in seconds</li>
+                    <li>Constraints, injuries, equipment and schedule</li>
+                </ul>
+            </div>
+            <div class="skill-category-card zoom-in delay-200">
+                <h4><i class="fa-solid fa-stopwatch"></i> <span data-i18n="ft2">Live Workout Tracking</span></h4>
+                <ul class="detailed-list" data-i18n="ft2List">
+                    <li>Smart rest timer that rings even when the app is closed</li>
+                    <li>PR history, strength charts and 1RM calculator</li>
+                </ul>
+            </div>
+            <div class="skill-category-card zoom-in delay-300">
+                <h4><i class="fa-solid fa-utensils"></i> <span data-i18n="ft3">Nutrition</span></h4>
+                <ul class="detailed-list" data-i18n="ft3List">
+                    <li>Calories, macros and vitamins from real USDA data</li>
+                    <li>Water intake and daily meal planning</li>
+                </ul>
+            </div>
+            <div class="skill-category-card zoom-in delay-100">
+                <h4><i class="fa-solid fa-user-group"></i> <span data-i18n="ft4">Coach Dashboard</span></h4>
+                <ul class="detailed-list" data-i18n="ft4List">
+                    <li>Trainees, plans, chat and subscriptions in one place</li>
+                    <li>Encrypted coach–trainee messaging</li>
+                </ul>
+            </div>
+            <div class="skill-category-card zoom-in delay-200">
+                <h4><i class="fa-solid fa-moon"></i> <span data-i18n="ft5">Built for the Region</span></h4>
+                <ul class="detailed-list" data-i18n="ft5List">
+                    <li>Full Arabic &amp; RTL interface</li>
+                    <li>Ramadan mode and prayer-time–aware reminders</li>
+                </ul>
+            </div>
+            <div class="skill-category-card zoom-in delay-300">
+                <h4><i class="fa-solid fa-palette"></i> <span data-i18n="ft6">Progress &amp; Personalization</span></h4>
+                <ul class="detailed-list" data-i18n="ft6List">
+                    <li>Body transformation from 4 angles with a shareable card</li>
+                    <li>8 themes, from light to dark</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screens -->
+    <section class="section">
+        <h2 class="section-title fade-up" data-i18n="csScreensTitle">The <span>Screens</span></h2>
+        <div class="cs-gallery">
+            <img src="../assets/images/voltfit/en-1.jpg" data-src-ar="../assets/images/voltfit/ar-1.jpg" alt="Home dashboard" loading="lazy" width="600" height="1300">
+            <img src="../assets/images/voltfit/en-2.jpg" data-src-ar="../assets/images/voltfit/ar-2.jpg" alt="Live workout tracking" loading="lazy" width="600" height="1300">
+            <img src="../assets/images/voltfit/en-3.jpg" data-src-ar="../assets/images/voltfit/ar-3.jpg" alt="Personal records" loading="lazy" width="600" height="1300">
+            <img src="../assets/images/voltfit/en-4.jpg" data-src-ar="../assets/images/voltfit/ar-4.jpg" alt="Nutrition tracking" loading="lazy" width="600" height="1300">
+            <img src="../assets/images/voltfit/en-5.jpg" data-src-ar="../assets/images/voltfit/ar-5.jpg" alt="AI plan builder" loading="lazy" width="600" height="1300">
+            <img src="../assets/images/voltfit/en-6.jpg" data-src-ar="../assets/images/voltfit/ar-6.jpg" alt="Body transformation" loading="lazy" width="600" height="1300">
+            <img src="../assets/images/voltfit/en-7.jpg" data-src-ar="../assets/images/voltfit/ar-7.jpg" alt="Coach dashboard" loading="lazy" width="600" height="1300">
+            <img src="../assets/images/voltfit/en-8.jpg" data-src-ar="../assets/images/voltfit/ar-8.jpg" alt="Themes" loading="lazy" width="600" height="1300">
+        </div>
+    </section>
+
+    <!-- Architecture -->
+    <section class="section">
+        <h2 class="section-title fade-up" data-i18n="csArchTitle">Local-First <span>Architecture</span></h2>
+        <div class="cs-arch fade-up">
+            <div class="cs-arch-node">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+                <h4 data-i18n="arch1">On the Device</h4>
+                <p data-i18n="arch1Desc">Every change is saved locally first (Zustand + device storage). The app works fully offline.</p>
+            </div>
+            <div class="cs-arch-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="cs-arch-node">
+                <i class="fa-solid fa-layer-group"></i>
+                <h4 data-i18n="arch2">Sync Queue</h4>
+                <p data-i18n="arch2Desc">Changed keys go to <code>pendingSyncKeys</code>, then upload once after a debounce. Large lists are split into hashed chunks.</p>
+            </div>
+            <div class="cs-arch-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="cs-arch-node">
+                <i class="fa-solid fa-fire"></i>
+                <h4 data-i18n="arch3">Firebase</h4>
+                <p data-i18n="arch3Desc">Firestore stores the data. Chat runs over short REST requests and new messages arrive by push notification.</p>
+            </div>
+        </div>
+        <p class="cs-arch-note fade-up" data-i18n="archNote">Only the chunks whose hash changed are uploaded — the app stays fast offline and Firestore writes stay low.</p>
+    </section>
+
+    <!-- Engineering challenges -->
+    <section class="section">
+        <h2 class="section-title fade-up" data-i18n="csChallengesTitle">Engineering <span>Challenges</span></h2>
+        <div class="cs-challenges">
+            <div class="cs-challenge fade-up">
+                <h3><i class="fa-solid fa-comments"></i> <span data-i18n="ch1">Real-time chat on Firebase's free plan</span></h3>
+                <span class="cs-challenge-label" data-i18n="chProblem">Problem</span>
+                <p data-i18n="ch1Problem">Chat and sync had to work reliably on the free Firebase plan, which allows only 100 simultaneous open connections. A typical WebSocket-style chat would hit that ceiling fast.</p>
+                <span class="cs-challenge-label" data-i18n="chSolution">Solution</span>
+                <p data-i18n="ch1Solution">I replaced long-lived connections with short REST requests for sending, receiving and delivery receipts. New messages reach the user through push notifications — so connections are never held open.</p>
+            </div>
+            <div class="cs-challenge fade-up">
+                <h3><i class="fa-solid fa-arrows-rotate"></i> <span data-i18n="ch2">Local-first sync with minimal writes</span></h3>
+                <span class="cs-challenge-label" data-i18n="chProblem">Problem</span>
+                <p data-i18n="ch2Problem">Users log sets and meals constantly, often with a weak connection. Writing every change straight to Firestore would be slow offline and expensive in writes.</p>
+                <span class="cs-challenge-label" data-i18n="chSolution">Solution</span>
+                <p data-i18n="ch2Solution">Each change is saved on the device first and marked in a <code>pendingSyncKeys</code> list, then uploaded to the cloud in one batch after a debounce. Large lists like the food log are split into chunks, each with its own hash, so only the chunk that changed is uploaded. This cut Firestore writes dramatically.</p>
+            </div>
+            <div class="cs-challenge fade-up">
+                <h3><i class="fa-brands fa-android"></i> <span data-i18n="ch3">A rest timer that always rings</span></h3>
+                <span class="cs-challenge-label" data-i18n="chProblem">Problem</span>
+                <p data-i18n="ch3Problem">The rest timer between sets must ring even when the app is closed or the screen is locked — which a JavaScript timer can't guarantee on Android.</p>
+                <span class="cs-challenge-label" data-i18n="chSolution">Solution</span>
+                <p data-i18n="ch3Solution">I wrote a native Android foreground service in Kotlin that keeps the timer alive and rings on time, bridged to the React Native app.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <footer id="contact" class="cs-cta fade-in">
+        <h2 data-i18n="csCtaTitle">Have a product like this in mind?</h2>
+        <p data-i18n="csCtaDesc">I design and build mobile apps and web platforms end-to-end.</p>
+        <div class="cs-actions">
+            <a href="mailto:sifhosam67@gmail.com" class="btn" data-i18n="sayHello">Start a Conversation</a>
+            <a href="https://wa.me/201090066885" target="_blank" rel="noopener noreferrer" class="btn btn-outline" data-i18n="whatsapp">WhatsApp Me</a>
+        </div>
+        <p style="margin-top: 40px; font-size: 0.8rem; opacity: 0.5;" data-i18n="rights">© 2026 SEIF HOSSAM. All rights reserved.</p>
+    </footer>
+
+    <!-- Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+
+    <!-- Floating Buttons -->
+    <a href="https://wa.me/201090066885" target="_blank" rel="noopener noreferrer" class="float-btn whatsapp-btn" aria-label="WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <button id="scroll-top" class="float-btn scroll-btn" aria-label="Scroll to Top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script>
+        window.pageTranslationsAr = {
+            csBack: "كل المشاريع",
+            csKicker: "دراسة حالة · تطبيق موبايل",
+            csTitle: "VOLT FIT — <span>التمرين والتغذية والتدريب</span> في تطبيق واحد",
+            csLead: "أغلب تطبيقات اللياقة بتغطي حتة واحدة بس: تمرين لوحده، أو أكل لوحده، أو شات مع المدرب على واتساب — ومعظمها مش معمول للمستخدم العربي. صممت وبنيت VOLT FIT من البداية للنهاية عشان أجمع ده كله في مكان واحد. التطبيق متاح على Google Play.",
+            csRoleLabel: "دوري",
+            csRole: "المهندس الوحيد — من الفكرة للإطلاق",
+            csPlatformLabel: "المنصة",
+            csPlatform: "Android · Google Play",
+            csStackLabel: "التقنيات",
+            csLangLabel: "اللغات",
+            csLang: "عربي وإنجليزي (دعم RTL كامل)",
+            csProblemTitle: "<span>المشكلة</span>",
+            csProblem: "<p>اللي بيتمرن بجد بيلاقي نفسه بيستخدم كذا تطبيق: واحد يسجل فيه التمرين، وواحد يحسب السعرات، وواتساب عشان يكلم المدرب. مفيش حاجة مربوطة ببعض، ومعظم التطبيقات دي العربي فيها مجرد ترجمة.</p><p><strong>VOLT FIT بيجمع ده كله في مكان واحد:</strong> خطة تمرين وأكل بالذكاء الاصطناعي، وتتبّع للماكروز والفيتامينات من بيانات USDA حقيقية، ومؤقت راحة بين المجموعات، ولوحة للمدرب يتابع منها المتدربين ويكلمهم. وفيه كمان حاجات معمولة لينا مخصوص: دعم كامل للعربي والـ RTL، و<strong>وضع رمضان</strong> بيظبط الوجبات على مواعيد الصيام، و<strong>مواعيد الصلاة</strong> بحيث التنبيهات متجيش وقت الصلاة.</p>",
+            csFeaturesTitle: "التطبيق <span>بيعمل إيه</span>",
+            ft1: "خطط بالذكاء الاصطناعي",
+            ft1List: ["خطط تمرين وأكل مخصصة في ثواني", "بتراعي الإصابات والأدوات والمواعيد"],
+            ft2: "تتبع التمرين لحظة بلحظة",
+            ft2List: ["مؤقت راحة ذكي بيرن حتى لو التطبيق مقفول", "سجل الأرقام القياسية ورسوم القوة وحاسبة 1RM"],
+            ft3: "التغذية",
+            ft3List: ["سعرات وماكروز وفيتامينات من بيانات USDA حقيقية", "شرب المياه وتخطيط الوجبات اليومية"],
+            ft4: "لوحة المدرب",
+            ft4List: ["المتدربين والخطط والشات والاشتراكات في مكان واحد", "محادثات مشفرة بين المدرب والمتدرب"],
+            ft5: "معمول لينا",
+            ft5List: ["واجهة عربية كاملة بدعم RTL", "وضع رمضان وتنبيهات بتراعي مواعيد الصلاة"],
+            ft6: "التقدم والتخصيص",
+            ft6List: ["مقارنة التحول من 4 زوايا مع كارت للمشاركة", "8 ثيمات من الفاتح للغامق"],
+            csScreensTitle: "<span>الشاشات</span>",
+            csArchTitle: "معمارية <span>Local-First</span>",
+            arch1: "على الجهاز",
+            arch1Desc: "كل تعديل بيتحفظ على الجهاز الأول (Zustand + تخزين محلي). التطبيق شغال بالكامل من غير إنترنت.",
+            arch2: "قائمة المزامنة",
+            arch2Desc: "المفاتيح اللي اتغيرت بتتعلّم في <code>pendingSyncKeys</code> وبتترفع مرة واحدة بعد debounce. والقوائم الكبيرة بتتقسم لـ chunks ليها hash.",
+            arch3: "Firebase",
+            arch3Desc: "Firestore بيخزن البيانات. والشات شغال بطلبات REST قصيرة، والرسالة الجديدة بتوصل بـ push notification.",
+            archNote: "مش بيترفع غير الـ chunk اللي الـ hash بتاعها اتغير — فالتطبيق سريع من غير إنترنت وعدد الكتابات في Firestore قليل.",
+            csChallengesTitle: "تحديات <span>تقنية</span>",
+            chProblem: "المشكلة",
+            chSolution: "الحل",
+            ch1: "شات لحظي على خطة Firebase المجانية",
+            ch1Problem: "كان لازم الشات والمزامنة يشتغلوا من غير ما يقعوا على خطة Firebase المجانية، اللي مسموح فيها بـ 100 اتصال مفتوح بس في نفس الوقت. شات بالـ WebSocket المعتاد كان هيوصل للحد ده بسرعة.",
+            ch1Solution: "بدل الاتصالات المفتوحة على طول، خليت الإرسال والاستلام وإشعارات الوصول كلها طلبات REST قصيرة، والرسالة الجديدة بتوصل للمستخدم بـ push notification — فمفيش اتصال بيفضل مفتوح.",
+            ch2: "مزامنة Local-First بأقل عدد كتابات",
+            ch2Problem: "المستخدم بيسجل مجموعات ووجبات طول الوقت، وغالباً على نت ضعيف. لو كل تعديل اتكتب في Firestore على طول، التطبيق هيبقى بطيء من غير نت وعدد الكتابات هيبقى كبير جداً.",
+            ch2Solution: "كل تعديل بيتحفظ على الجهاز الأول وبيتعلّم في قائمة <code>pendingSyncKeys</code>، وبعدين يترفع للسحابة مرة واحدة بعد debounce. والقوائم الكبيرة زي سجل الأكل بتتقسم لـ chunks، وكل chunk ليها hash، فمش بيترفع غير الجزء اللي اتغير. ده قلّل عدد الكتابات في Firestore جامد.",
+            ch3: "مؤقت راحة بيرن دايماً",
+            ch3Problem: "مؤقت الراحة بين المجموعات لازم يرن حتى لو التطبيق مقفول أو الشاشة مقفولة — وده مش مضمون بتايمر JavaScript على أندرويد.",
+            ch3Solution: "كتبت foreground service على أندرويد بـ Kotlin بيحافظ على المؤقت شغال ويرن في ميعاده، ومربوط بتطبيق الـ React Native.",
+            csCtaTitle: "عندك فكرة منتج زي ده؟",
+            csCtaDesc: "بصمم وببني تطبيقات موبايل ومنصات ويب من البداية للنهاية."
+        };
+    </script>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

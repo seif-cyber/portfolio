@@ -6,13 +6,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const cursor = document.getElementById('cursor');
     const cursorBlur = document.getElementById('cursor-blur');
 
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
+    const moveCursor = (x, y) => {
+        cursor.style.left = x + 'px';
+        cursor.style.top = y + 'px';
 
-        cursorBlur.style.left = e.clientX + 'px';
-        cursorBlur.style.top = e.clientY + 'px';
-    });
+        cursorBlur.style.left = x + 'px';
+        cursorBlur.style.top = y + 'px';
+    };
+
+    document.addEventListener('mousemove', (e) => moveCursor(e.clientX, e.clientY));
+
+    // On touch screens the circle follows the finger
+    const followTouch = (e) => {
+        const touch = e.touches[0];
+        if (!touch) return;
+        document.body.classList.add('touch-active');
+        moveCursor(touch.clientX, touch.clientY);
+    };
+    document.addEventListener('touchstart', followTouch, { passive: true });
+    document.addEventListener('touchmove', followTouch, { passive: true });
 
     // Hover Effects
     const hoverElements = document.querySelectorAll('a, button, .project-card, .skill-category-card');
@@ -102,15 +114,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    const roles = {
+        en: ['Senior Full-Stack Engineer', 'React Native Mobile Engineer', 'Software Architect'],
+        ar: ['مهندس برمجيات أول Full-Stack', 'مهندس تطبيقات React Native', 'معماري برمجيات']
+    };
+
     // Initial Typed.js
-    initTyped(['Full-Stack Developer', 'Software Engineer', 'Creative Coder']);
+    initTyped(roles.en);
 
     /* =========================================
        4. Vanilla Tilt Config
        ========================================= */
     // Tilt is a hover effect; skip it on touch screens where it only gets in the way of scrolling
     if (typeof VanillaTilt !== 'undefined' && window.matchMedia('(hover: hover)').matches) {
-        VanillaTilt.init(document.querySelectorAll(".project-card"), {
+        VanillaTilt.init(document.querySelectorAll(".project-card:not(.voltfit-featured)"), {
             max: 15,
             speed: 400,
             glare: true,
@@ -121,251 +138,189 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* =========================================
        5. Language Toggle Logic
+       English lives in the HTML; elements marked data-i18n="key" are
+       swapped from the `ar` dictionary below. Arrays render as <li> items.
        ========================================= */
     const langBtn = document.getElementById('lang-toggle');
     let currentLang = 'en';
 
-    const translations = {
-        en: {
-            home: "Home",
-            about: "About",
-            skills: "Skills",
-            projects: "Projects",
-            contact: "Contact",
-            role: "Full-Stack Developer",
-            roles: ['Full-Stack Developer', 'Software Engineer', 'Creative Coder'],
-            greeting: "Hi, I'm SEIF HOSSAM",
-            desc: "A driven <strong>Computer Science Student</strong> and <strong>Software Engineer</strong> skilled in React, Java, and C++. I specialize in building scalable, production-ready applications with clean code and modern architecture.",
-            cv: "Download CV",
-            work: "See My Work",
-            more: "More About Me",
-            featuredProjects: "Featured <span>Software Projects</span>",
-            technicalSkills: "Technical <span>Skills & Technologies</span>",
-            frontendTab: "Frontend Development",
-            backendTab: "Backend Development",
-            softSkillsTitle: "Professional <span>Soft Skills</span>",
-            getInTouch: "Get In Touch",
-            footerDesc: "Currently looking for new opportunities. My inbox is always open.",
-            sayHello: "Say Hello",
-            openProject: "Open Project",
-            downloadApp: "Download App",
-            watchVideo: "Watch on TikTok",
-            privacyPolicy: "Privacy Policy",
-            rights: "© 2026 SEIF HOSSAM. All rights reserved.",
-            voltfitTitle: "VOLT FIT - Fitness & Coaching App",
-            voltfitDesc: "A high-performance, offline-first cross-platform fitness app built with React Native (Expo) & Zustand. Features 24 screens, real-time Firebase sync, workout tracking with PR detection, 3-color circular macro nutrition tracker, 1RM calculator, and coach management with encrypted chat.",
-            project1Title: "E-Commerce Dashboard",
-            project1Desc: "A comprehensive seller dashboard built with React.js. Features real-time data visualization, inventory management state, and responsive sales reporting charts.",
-            project2Title: "Farida Marketing Agency",
-            project2Desc: "A premium, full-service advertising and marketing platform. Features a high-impact, dark-themed cinematic design showcasing strategic branding and digital marketing services.",
-            project3Title: "Study To-Do List",
-            project3Desc: "A productivity application designed to help organize study schedules. Features persistent task storage and a focused, distraction-free interface.",
-            sk1: "Problem Solving",
-            sk1Desc: ["Ability to debug code and find effective solutions", "Tackling programming challenges in real projects"],
-            sk2: "Analytical Thinking",
-            sk2Desc: ["Understanding and analyzing system requirements", "Designing database schemas, ERDs and mapping diagrams"],
-            sk3: "Time Management",
-            sk3Desc: ["Managing multiple Front-End and Back-End tasks", "Organizing workflows and meeting deadlines"],
-            sk4: "Attention to Detail",
-            sk4Desc: ["Writing clean, maintainable code", "Following OOP and SOLID principles", "Implementing validation and error handling"],
-            sk5: "Adaptability",
-            sk5Desc: ["Learning multiple technologies (Angular, React, Laravel)", "Quickly adapting to new frameworks and tools"],
-            sk6: "Communication",
-            sk6Desc: ["Documenting projects on GitHub clearly", "Writing readable READMEs and technical notes", "Collaborating with teammates or clients"],
-            sk7: "Teamwork",
-            sk7Desc: ["Integrating Front-End and Back-End workflows", "Using Git/GitHub effectively for team projects", "Understanding MVC architecture in collaboration"],
-            sk8: "Critical Thinking",
-            sk8Desc: ["Making architectural and design decisions", "Implementing security measures and authentication", "Choosing the best UI/UX approaches"],
-            sk9: "Creativity",
-            sk9Desc: ["Designing modern and user-friendly interfaces", "Building innovative solutions using React or Angular"],
-            sk10: "Professionalism",
-            sk10Desc: ["Meeting project deadlines consistently", "Testing and reviewing final applications before delivery"],
-            logo: "SEIF <span style='color: var(--primary);'>HOSSAM</span>"
-        },
-        ar: {
-            home: "الرئيسية",
-            about: "من أنا",
-            skills: "المهارات",
-            projects: "المشاريع",
-            contact: "تواصل معي",
-            role: "مطور برمجيات شامل",
-            roles: ['مطور برمجيات شامل', 'مهندس برمجيات', 'مبرمج مبدع'],
-            greeting: "أهلاً، أنا سيف حسام",
-            desc: "طالب علوم حاسب ومطور مبتدئ متخصص في React و Java و C++. أقوم ببناء تطبيقات ويب حديثة وقابلة للتطوير.",
-            cv: "تحميل السيرة الذاتية",
-            work: "شاهد أعمالي",
-            more: "المزيد عني",
-            featuredProjects: "أهم <span>المشاريع</span>",
-            technicalSkills: "المهارات <span>التقنية</span>",
-            frontendTab: "تطوير الواجهة الأمامية",
-            backendTab: "تطوير الواجهة الخلفية",
-            softSkillsTitle: "المهارات <span>الشخصية</span>",
-            getInTouch: "تواصل معي",
-            footerDesc: "أبحث حالياً عن فرص جديدة. بريدي الإلكتروني متاح دائماً.",
-            sayHello: "أرسل رسالة",
-            openProject: "عرض المشروع",
-            downloadApp: "حمّل التطبيق",
-            watchVideo: "شاهد على تيك توك",
-            privacyPolicy: "سياسة الخصوصية",
-            rights: "© 2026 سيف حسام. جميع الحقوق محفوظة.",
-            voltfitTitle: "تطبيق VOLT FIT الرياضي المتكامل",
-            voltfitDesc: "تطبيق لياقة وتدريب شامل يعمل بنظام (Offline-First) مبني بـ React Native (Expo) و Zustand. يضم 24 شاشة، مزامنة سحابية مع Firebase، تتبع حي للتمارين والأرقام القياسية (PR)، حلقة ماكروز وسعرات دائرية، ونظام متكامل للمدربين واللاعبين بمحادثات مشفرة.",
-            project1Title: "لوحة تحكم التجارة الإلكترونية",
-            project1Desc: "لوحة تحكم بائع شاملة مبنية بـ React.js. تتميز بعرض البيانات الفوري وتقارير المبيعات.",
-            project2Title: "شركة فريدة للتسويق",
-            project2Desc: "منصة إعلانية متميزة بتصميم سينمائي عالي التأثير تعرض خدمات العلامة التجارية الاستراتيجية.",
-            project3Title: "قائمة مهام الدراسة",
-            project3Desc: "تطبيق إنتاجية مصمم للمساعدة في تنظيم جداول الدراسة مع تخزين مستمر للمهام.",
-            sk1: "حل المشكلات",
-            sk1Desc: ["القدرة على حل مشكلات البرمجة وإيجاد حلول فعالة", "التعامل مع تحديات البرمجة في المشاريع الحقيقية"],
-            sk2: "التفكير التحليلي",
-            sk2Desc: ["فهم وتحليل متطلبات النظام", "تصميم قواعد البيانات ومخططات الـ ERD"],
-            sk3: "إدارة الوقت",
-            sk3Desc: ["إدارة مهام الواجهة الأمامية والخلفية المتعددة", "تنظيم سير العمل والالتزام بالمواعيد النهائية"],
-            sk4: "الاهتمام بالتفاصيل",
-            sk4Desc: ["كتابة كود نظيف وقابل للصيانة", "اتباع مبادئ OOP و SOLID", "تنفيذ عمليات التحقق ومعالجة الأخطاء"],
-            sk5: "المرونة والتكيف",
-            sk5Desc: ["تعلم تقنيات متعددة (Angular, React, Laravel)", "التكيف السريع مع الأطر والأدوات الجديدة"],
-            sk6: "التواصل",
-            sk6Desc: ["توثيق المشاريع على GitHub بشكل واضح", "كتابة ملفات README وملاحظات تقنية سهلة القراءة", "التعاون مع أعضاء الفريق أو العملاء"],
-            sk7: "العمل الجماعي",
-            sk7Desc: ["دمج سير عمل الواجهة الأمامية والخلفية", "استخدام Git/GitHub بفعالية في مشاريع الفريق", "فهم معمارية MVC في التعاون البرمجي"],
-            sk8: "التفكير النقدي",
-            sk8Desc: ["اتخاذ قرارات معمارية وتصميمية", "تنفيذ تدابير الأمان والمصادقة", "اختيار أفضل أساليب UI/UX"],
-            sk9: "الإبداع",
-            sk9Desc: ["تصميم واجهات حديثة وسهلة الاستخدام", "بناء حلول مبتكرة باستخدام React أو Angular"],
-            sk10: "الاحترافية",
-            sk10Desc: ["الالتزام بالمواعيد النهائية للمشاريع باستمرار", "اختبار ومراجعة التطبيقات النهائية قبل التسليم"],
-            logo: "سيف <span style='color: var(--primary);'>حسام</span>"
-        }
+    const ar = {
+        logo: "سيف <span style='color: var(--primary);'>حسام</span>",
+        navHome: "الرئيسية",
+        navAbout: "من أنا",
+        navSkills: "الخبرات",
+        navProjects: "الأعمال",
+        navServices: "الخدمات",
+        navContact: "تواصل معي",
+        greeting: "أهلاً، أنا سيف حسام",
+        heroDesc: "<strong>مهندس برمجيات أول Full-Stack وتطبيقات موبايل</strong>، أصمم وأطلق برمجيات إنتاجية من البداية للنهاية — من المعمارية والـ APIs لحد تطبيقات منشورة على Google Play. أبني تطبيقات موبايل تعمل بدون إنترنت (Offline-First) ومنصات ويب قابلة للتوسع باستخدام React و React Native و Laravel و Firebase.",
+        cv: "تحميل السيرة الذاتية",
+        work: "شاهد أعمالي",
+        aboutTitle: "الخبرة <span>وأسلوب العمل</span>",
+        expDate: "2023 — حتى الآن",
+        expCompany: "عمل حر (Freelance)",
+        expRole: "مهندس برمجيات أول Full-Stack وتطبيقات موبايل",
+        expList: [
+            "صممت وبنيت ونشرت تطبيق VOLT FIT — منصة لياقة وتدريب تعمل بنظام Offline-First (React Native و Zustand و Firebase) ومتاحة على Google Play.",
+            "سلّمت مواقع ومنصات ويب لعملاء من البداية للنهاية، منها شركة فريدة للتسويق.",
+            "مسؤول عن دورة المشروع كاملة: تحليل المتطلبات والأنظمة، المعمارية، تصميم الـ APIs، النشر والدعم بعد الإطلاق.",
+            "أبني منتجات ثنائية اللغة (عربي/إنجليزي RTL) مع تركيز على الأداء والأمان والـ SEO."
+        ],
+        pr1: "المعمارية أولاً",
+        pr1Desc: "أبدأ من نماذج البيانات واستراتيجية المزامنة وحالات الفشل — عشان المنتج يكبر من غير إعادة كتابة.",
+        pr2: "الإطلاق للإنتاج",
+        pr2Desc: "مستخدمين حقيقيين ومتاجر حقيقية ومواعيد حقيقية. مسؤول عن الإصدارات والمتابعة والإصلاحات بعدها.",
+        pr3: "كود قابل للصيانة",
+        pr3Desc: "هيكلة واضحة وعقود بيانات محددة وتحقق من المدخلات في كل مكان — كود يقدر أي مهندس بعدي يطوّره.",
+        technicalSkills: "الخبرات <span>التقنية</span>",
+        mobileTab: "الموبايل",
+        frontendTab: "الواجهة الأمامية",
+        backendTab: "الخلفية والمعمارية",
+        skRn: ["تطبيقات متعددة المنصات من كود واحد", "تنقل معقد بين شاشات متعددة (+24 شاشة)", "أداء أصلي وحركات سلسة", "نشر وتحديث التطبيقات على Google Play"],
+        skStateTitle: "إدارة الحالة و Offline-First",
+        skState: ["معمارية الحالة باستخدام Zustand", "تخزين محلي مع مزامنة في الخلفية", "مستمعات Firestore الفورية", "تجربة مستخدم ثابتة مع الاتصال الضعيف"],
+        skFirebase: ["نمذجة بيانات Firestore", "المصادقة والصلاحيات حسب الدور", "تحديثات فورية ومحادثات مشفرة", "قواعد الأمان والاستضافة"],
+        skReact: ["معمارية مكونات وواجهات قابلة لإعادة الاستخدام", "إدارة الحالة (Context و Zustand)", "توجيه الصفحات وجلب البيانات", "تحسين الأداء"],
+        skAngular: ["تصميم تطبيقات بـ TypeScript و OOP", "النماذج التفاعلية والتحقق", "الخدمات وربط الـ APIs", "المصادقة باستخدام JWT"],
+        skWebTitle: "منصات الويب",
+        skWeb: ["واجهات متجاوبة وسهلة الوصول", "تصميمات ثنائية اللغة ودعم RTL", "SEO تقني وبيانات منظمة", "تسليم تصميمات UI/UX"],
+        skLaravel: ["تصميم RESTful APIs", "المصادقة والـ Middleware والصلاحيات", "Eloquent ORM ومعمارية MVC", "التحقق من المدخلات وأمان الويب"],
+        skDataTitle: "البيانات",
+        skData: ["تصميم قواعد بيانات علائقية (MySQL)", "نمذجة NoSQL (Firestore)", "تحسين الاستعلامات والفهارس", "ترحيل البيانات وسلامتها"],
+        skArchTitle: "المعمارية والتسليم",
+        skArch: ["تحليل الأنظمة ومخططات ERD وحالات الاستخدام", "تصميم عقود الـ APIs والتكامل", "Git و CI/CD (GitHub Actions)", "النشر والاستضافة (Firebase و Hostinger)"],
+        featuredProjects: "أبرز <span>الأعمال</span>",
+        voltfitTitle: "VOLT FIT — منصة لياقة وتدريب",
+        voltfitDesc: "تطبيق لياقة وتدريب منشور على Google Play، مسؤول عنه بالكامل: معمارية المنتج، طبقة بيانات Offline-First مع مزامنة فورية عبر Firebase، تصميم الحالة بـ Zustand، 24 شاشة، تتبع التمارين واكتشاف الأرقام القياسية (PR)، تتبع الماكروز، حاسبة 1RM، ونظام مدرب ومتدرب بمحادثات مشفرة.",
+        caseStudy: "اقرأ دراسة الحالة",
+        downloadApp: "حمّل التطبيق",
+        watchVideo: "شاهد على تيك توك",
+        privacyPolicy: "سياسة الخصوصية",
+        project2Title: "شركة فريدة للتسويق",
+        project2Desc: "مشروع عميل تم تسليمه بالكامل لوكالة إعلانية متكاملة: موقع سينمائي بتصميم داكن عالي التأثير، متجاوب بالكامل ومحسّن للسرعة ومحركات البحث.",
+        openProject: "عرض المشروع",
+        project1Title: "لوحة تحكم البائع للتجارة الإلكترونية",
+        project1Desc: "لوحة تحليلات للبائعين مبنية بـ React: عرض بيانات فوري، إدارة حالة المخزون، وتقارير مبيعات متجاوبة مبنية على مكونات رسوم بيانية قابلة لإعادة الاستخدام.",
+        servicesTitle: "إزاي أقدر <span>أساعدك</span>",
+        sv1: "تطبيقات الموبايل",
+        sv1List: ["تطبيقات Android و iOS بـ React Native", "بيانات Offline-First ومزامنة فورية", "النشر على المتاجر والإصدارات المستمرة"],
+        sv2: "منصات الويب",
+        sv2List: ["مواقع شركات ولوحات تحكم", "REST APIs وأنظمة إدارة", "مواقع ثنائية اللغة وجاهزة للـ SEO"],
+        sv3: "استشارات تقنية",
+        sv3List: ["تحليل الأنظمة والمعمارية", "مراجعة تصميم قواعد البيانات والـ APIs", "تحويل الفكرة لخطة تنفيذ"],
+        getInTouch: "يلا نبني حاجة سوا",
+        footerDesc: "متاح لأدوار هندسية أولى (Senior)، مشاريع حرة، واستشارات تقنية.",
+        sayHello: "ابدأ محادثة",
+        whatsapp: "راسلني واتساب",
+        rights: "© 2026 سيف حسام. جميع الحقوق محفوظة."
     };
 
-    if (langBtn) {
-        langBtn.addEventListener('click', () => {
-            currentLang = currentLang === 'en' ? 'ar' : 'en';
-            langBtn.textContent = currentLang === 'ar' ? 'EN' : 'AR';
+    // Pages can add their own Arabic strings before loading this script
+    Object.assign(ar, window.pageTranslationsAr || {});
 
-            // Toggle RTL/LTR
-            document.documentElement.lang = currentLang;
-            document.body.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+    const i18nEls = document.querySelectorAll('[data-i18n]');
+    const englishHtml = new Map();
+    i18nEls.forEach(el => englishHtml.set(el, el.innerHTML));
 
-            const t = translations[currentLang];
+    // Images with a localized version (e.g. Arabic store screenshots)
+    const i18nImgs = document.querySelectorAll('img[data-src-ar]');
+    i18nImgs.forEach(img => img.dataset.srcEn = img.getAttribute('src'));
 
-            // Navbar
-            const logoEl = document.querySelector('.logo');
-            if (logoEl) logoEl.innerHTML = t.logo;
+    function applyLang(lang) {
+        currentLang = lang;
+        if (langBtn) langBtn.textContent = lang === 'ar' ? 'EN' : 'AR';
+        document.documentElement.lang = lang;
+        document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
 
-            const navLinksTexts = document.querySelectorAll('.nav-links a');
-            navLinksTexts[0].textContent = t.home;
-            navLinksTexts[1].textContent = t.about;
-            navLinksTexts[2].textContent = t.skills;
-            navLinksTexts[3].textContent = t.projects;
-            navLinksTexts[4].textContent = t.contact;
-
-            // Hero
-            initTyped(t.roles);
-
-            const heroH1 = document.querySelector('.hero-text h1');
-            if (heroH1) {
-                heroH1.textContent = t.greeting;
-                heroH1.setAttribute('data-text', t.greeting);
-            }
-            const heroP = document.querySelector('.hero-text p');
-            if (heroP) heroP.innerHTML = t.desc;
-
-            // Hero Buttons
-            const heroBtns = document.querySelectorAll('.cta-buttons .btn');
-            if (heroBtns.length >= 2) {
-                heroBtns[0].textContent = t.cv;
-                heroBtns[1].textContent = t.work;
-            }
-
-            // Headings
-            const skillsTitle = document.querySelector('#skills .section-title');
-            if (skillsTitle) skillsTitle.innerHTML = t.technicalSkills;
-
-            const projectsTitle = document.querySelector('#projects .section-title');
-            if (projectsTitle) projectsTitle.innerHTML = t.featuredProjects;
-
-            const softSkillsTitle = document.querySelector('#soft-skills .section-title');
-            if (softSkillsTitle) softSkillsTitle.innerHTML = t.softSkillsTitle;
-
-            // Tabs
-            const tabBtnsEl = document.querySelectorAll('.tab-btn');
-            if (tabBtnsEl.length >= 2) {
-                tabBtnsEl[0].textContent = t.frontendTab;
-                tabBtnsEl[1].textContent = t.backendTab;
-            }
-
-            // Project Items
-            const projectCards = document.querySelectorAll('.project-card');
-            projectCards.forEach(card => {
-                const pKey = card.getAttribute('data-project');
-                if (pKey && t[`${pKey}Title`]) {
-                    const titleEl = card.querySelector('.project-title');
-                    const descEl = card.querySelector('.project-description');
-                    const btnEl = card.querySelector('.btn-sm:not(.privacy-btn):not(.download-btn):not(.video-btn)');
-                    const downloadSpan = card.querySelector('.download-btn span');
-                    const privacyBtn = card.querySelector('.privacy-btn');
-                    const privacySpan = card.querySelector('.privacy-btn span');
-                    if (titleEl) titleEl.textContent = t[`${pKey}Title`];
-                    if (descEl) descEl.textContent = t[`${pKey}Desc`];
-                    if (btnEl) btnEl.textContent = t.openProject;
-                    if (downloadSpan) downloadSpan.textContent = t.downloadApp;
-                    const videoSpan = card.querySelector('.video-btn span');
-                    if (videoSpan) videoSpan.textContent = t.watchVideo;
-                    if (privacySpan && t.privacyPolicy) privacySpan.textContent = t.privacyPolicy;
-                    if (privacyBtn) privacyBtn.setAttribute('href', `privacy-policy.html?lang=${currentLang}`);
-                }
-            });
-
-            // Soft Skills Individual Titles & Lists
-            const softSkillCards = document.querySelectorAll('#soft-skills .skill-category-card');
-            const icons = [
-                'fa-puzzle-piece', 'fa-brain', 'fa-clock', 'fa-magnifying-glass',
-                'fa-bolt', 'fa-comments', 'fa-users', 'fa-chess', 'fa-lightbulb', 'fa-user-tie'
-            ];
-
-            softSkillCards.forEach((card, index) => {
-                const head = card.querySelector('h4');
-                const list = card.querySelector('ul');
-                const key = `sk${index + 1}`;
-                const descKey = `${key}Desc`;
-
-                if (head) head.innerHTML = `<i class="fa-solid ${icons[index]}"></i> ${t[key]}`;
-
-                if (list && t[descKey]) {
-                    list.innerHTML = t[descKey].map(item => `<li>${item}</li>`).join('');
-                }
-            });
-
-            // Footer
-            const footerH2 = document.querySelector('footer h2');
-            if (footerH2) footerH2.textContent = t.getInTouch;
-
-            const footerPs = document.querySelectorAll('footer p');
-            if (footerPs.length >= 2) {
-                footerPs[0].textContent = t.footerDesc;
-                footerPs[1].textContent = t.rights;
-            }
-
-            const sayHelloBtn = document.querySelector('footer .cta-buttons .btn');
-            if (sayHelloBtn) sayHelloBtn.textContent = t.sayHello;
-
-            // Save preference
-            try {
-                localStorage.setItem('portfolio_lang', currentLang);
-            } catch (e) {}
+        i18nEls.forEach(el => {
+            const value = lang === 'ar' ? ar[el.dataset.i18n] : englishHtml.get(el);
+            if (value === undefined) return;
+            el.innerHTML = Array.isArray(value) ? value.map(item => `<li>${item}</li>`).join('') : value;
+            if (el.hasAttribute('data-text')) el.setAttribute('data-text', el.textContent);
         });
+
+        i18nImgs.forEach(img => img.setAttribute('src', lang === 'ar' ? img.dataset.srcAr : img.dataset.srcEn));
+
+        initTyped(roles[lang]);
+
+        const privacyBtn = document.querySelector('.privacy-btn');
+        if (privacyBtn) privacyBtn.setAttribute('href', `privacy-policy.html?lang=${lang}`);
+
+        try {
+            localStorage.setItem('portfolio_lang', lang);
+        } catch (e) {}
+    }
+
+    if (langBtn) {
+        langBtn.addEventListener('click', () => applyLang(currentLang === 'en' ? 'ar' : 'en'));
 
         // Initialize from saved preference if available
         try {
-            const savedLang = localStorage.getItem('portfolio_lang');
-            if (savedLang === 'ar') {
-                langBtn.click();
-            }
+            if (localStorage.getItem('portfolio_lang') === 'ar') applyLang('ar');
         } catch (e) {}
     }
+
+    /* =========================================
+       6. Page Scrollbar
+          Drawn in the page so the custom cursor shows over it (CSS hides it on touch screens)
+       ========================================= */
+    const scrollbar = document.createElement('div');
+    scrollbar.className = 'page-scrollbar';
+    const thumb = document.createElement('div');
+    thumb.className = 'page-scrollbar-thumb';
+    scrollbar.appendChild(thumb);
+    document.body.appendChild(scrollbar);
+
+    const scrollRoot = document.documentElement;
+    const maxScroll = () => scrollRoot.scrollHeight - window.innerHeight;
+    const scrollToInstant = (top) => window.scrollTo({ top, behavior: 'instant' });
+
+    const updateThumb = () => {
+        const max = maxScroll();
+        scrollbar.style.visibility = max > 0 ? 'visible' : 'hidden';
+        if (max <= 0) return;
+        const trackHeight = scrollbar.clientHeight;
+        const thumbHeight = Math.max(40, trackHeight * window.innerHeight / scrollRoot.scrollHeight);
+        thumb.style.height = thumbHeight + 'px';
+        thumb.style.top = (trackHeight - thumbHeight) * (window.scrollY / max) + 'px';
+    };
+
+    window.addEventListener('scroll', updateThumb, { passive: true });
+    window.addEventListener('resize', updateThumb);
+    window.addEventListener('load', updateThumb);
+    updateThumb();
+
+    let dragOffset = null;
+    const scrollFromPointer = (clientY) => {
+        const free = scrollbar.clientHeight - thumb.offsetHeight;
+        if (free <= 0) return;
+        const ratio = Math.min(1, Math.max(0, (clientY - dragOffset) / free));
+        scrollToInstant(ratio * maxScroll());
+    };
+
+    thumb.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+        dragOffset = e.clientY - thumb.offsetTop;
+        scrollbar.classList.add('dragging');
+    });
+
+    // Clicking the track jumps there, centring the thumb under the pointer
+    scrollbar.addEventListener('mousedown', (e) => {
+        if (e.target !== scrollbar) return;
+        e.preventDefault();
+        dragOffset = thumb.offsetHeight / 2;
+        scrollbar.classList.add('dragging');
+        scrollFromPointer(e.clientY);
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (dragOffset !== null) scrollFromPointer(e.clientY);
+    });
+
+    document.addEventListener('mouseup', () => {
+        dragOffset = null;
+        scrollbar.classList.remove('dragging');
+    });
 
     /* =========================================
        7. Scroll To Top Logic
