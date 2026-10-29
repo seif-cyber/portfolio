@@ -293,7 +293,7 @@
         // Shows the loader until the page has loaded: at least MIN_MS so it doesn't flash,
         // at most MAX_MS so a slow third-party file can't keep the site hidden.
         (function () {
-            var MIN_MS = 1300, MAX_MS = 4000;
+            var MIN_MS = 3000, MAX_MS = 4000;
             var root = document.documentElement;
             root.classList.add('is-loading');
             window.loaderDone = false;
