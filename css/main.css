@@ -1,4 +1,4 @@
-/* Main Stylesheet Import Hub */
+/* Main Stylesheet Import Hub (used by voltfit/ and privacy-policy.html; index.html links these files directly, keep both lists in sync) */
 
 /* Base Styles */
 @import 'base/variables.css';

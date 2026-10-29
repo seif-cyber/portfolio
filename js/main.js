@@ -1,5 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // Runs fn once the loading screen in index.html is gone (immediately on pages without it)
+    const afterLoader = (fn) => {
+        if (window.loaderDone !== false) fn();
+        else document.addEventListener('loader:done', fn, { once: true });
+    };
+
     /* =========================================
        1. Custom Cursor Logic
        ========================================= */
@@ -107,7 +113,14 @@ document.addEventListener('DOMContentLoaded', () => {
        3. Typed.js Config
        ========================================= */
     let typed;
+    let pendingStrings = null;
     function initTyped(strings) {
+        // Hold the typing effect until the loader is gone so it starts in view
+        if (window.loaderDone === false) {
+            if (!pendingStrings) afterLoader(() => initTyped(pendingStrings));
+            pendingStrings = strings;
+            return;
+        }
         if (typed) typed.destroy();
         const typingElement = document.querySelector('.hero-text .typed-text');
         if (typingElement && typeof Typed !== 'undefined') {
@@ -401,27 +414,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.fade-up, .zoom-in, .slide-in-left, .slide-in-right, .fade-in').forEach(el => observer.observe(el));
+    afterLoader(() => {
+        document.querySelectorAll('.fade-up, .zoom-in, .slide-in-left, .slide-in-right, .fade-in').forEach(el => observer.observe(el));
+    });
 
     /* =========================================
-       10. VOLT FIT Video Scroll-Triggered Autoplay
-           (Starts ONLY on scroll, plays 2 times, then freezes on last frame)
+       10. VOLT FIT Video Lazy Load & Scroll-Triggered Autoplay
+           (Downloads only when the card nears the viewport, plays 2 times,
+            then freezes on last frame; pauses while off-screen)
        ========================================= */
     const voltfitCard = document.querySelector('.voltfit-card');
     const voltfitVideo = document.querySelector('.voltfit-video-bg');
+    const saveData = navigator.connection && navigator.connection.saveData;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    if (voltfitCard && voltfitVideo) {
+    // Keep just the poster for data-saver / reduced-motion users or old browsers
+    if (voltfitCard && voltfitVideo && !saveData && !reduceMotion && 'IntersectionObserver' in window) {
         let playCount = 0;
         const maxPlays = 2;
-        let hasStarted = false;
+        let sourcesLoaded = false;
 
-        const startVideo = () => {
-            if (playCount < maxPlays) {
-                const playPromise = voltfitVideo.play();
-                if (playPromise !== undefined) {
-                    playPromise.catch(() => {});
-                }
-            }
+        const loadSources = () => {
+            if (sourcesLoaded) return;
+            sourcesLoaded = true;
+            voltfitVideo.querySelectorAll('source[data-src]').forEach(source => {
+                source.src = source.dataset.src;
+            });
+            voltfitVideo.preload = 'auto';
+            voltfitVideo.load();
         };
 
         voltfitVideo.addEventListener('ended', () => {
@@ -435,24 +455,25 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Trigger ONLY when the user scrolls down to the VOLT FIT card
-        if ('IntersectionObserver' in window) {
-            const videoObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && !hasStarted) {
-                        hasStarted = true;
-                        startVideo();
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.25 // Starts when 25% of the card is visible in the viewport
-            });
+        // Start fetching a bit before the card scrolls into view
+        new IntersectionObserver((entries, observer) => {
+            if (entries.some(entry => entry.isIntersecting)) {
+                loadSources();
+                observer.disconnect();
+            }
+        }, { rootMargin: '300px 0px' }).observe(voltfitCard);
 
-            videoObserver.observe(voltfitCard);
-        } else {
-            startVideo();
-        }
+        // Play when 25% of the card is visible, pause when it leaves
+        new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && playCount < maxPlays) {
+                    loadSources();
+                    voltfitVideo.play().catch(() => {});
+                } else if (!entry.isIntersecting && !voltfitVideo.paused) {
+                    voltfitVideo.pause();
+                }
+            });
+        }, { threshold: 0.25 }).observe(voltfitCard);
     }
 });
 
